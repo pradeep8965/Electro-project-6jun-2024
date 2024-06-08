@@ -1,11 +1,17 @@
 
 <?php
 
+
+
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('home');
 });
+
+Route::post('/login',[AuthController::class,'login'])->name('login');
 /* Fronted Routes*/
 Route::prefix('/shop')->group(function () {
     Route::get('/cart',function(){
@@ -62,12 +68,14 @@ Route::prefix('admin')->group(function () {
         return view('admin.login');
         // login.blade.php 
     });
-    Route::get('/dashboard', function () {
-        // Matches The "/admin/login" URL
-        return view('admin.dashboard');
-        // dashboard.blade.php 
-    });
+  Route::get('logout',[Authcontroller::class,'logout']);
+  Route::get('dashboard',[Authcontroller::class,'dashboard']);
+
+
+
     /* Only for practice */
+
+
         Route::get('/general', function () {
             // Matches The "/admin/login" URL
             return view('admin.general');
