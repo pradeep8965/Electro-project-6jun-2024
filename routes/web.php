@@ -1,9 +1,6 @@
 
 <?php
 
-
-
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -76,6 +73,21 @@ Route::prefix('admin')->group(function () {
     /* Only for practice */
 
 
+        Route::get('/dashboard_v2', function () {
+            // Matches The "/admin/login" URL
+            return view('admin.dashboard_v2');
+            // dashboard v2.blade.php 
+        });
+        Route::get('/dashboard_v3', function () {
+            // Matches The "/admin/login" URL
+            return view('admin.dashboard_v3');
+            // dashboard v3.blade.php 
+        });
+        Route::get('/widgets', function () {
+            // Matches The "/admin/login" URL
+            return view('admin.widgets');
+            // widgets.blade.php 
+        });
         Route::get('/general', function () {
             // Matches The "/admin/login" URL
             return view('admin.general');
