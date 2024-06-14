@@ -35,7 +35,7 @@ class CustomerAuthController extends Controller
             //user can not be stored...
             //With mathod will create session variable ..
 
-            return back()->with('failed' , 'You have rergistered successfully ');
+            return back()->with('failed' , 'Email already exist ');
         }
         //dd($request->all());
         //every function return something 
