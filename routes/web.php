@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerAuthController;
 
 Route::get('/', function () {
     return view('home');
@@ -128,4 +129,10 @@ Route::prefix('admin')->group(function () {
             return view('admin.ribbons');
             // ribbons.blade.php
         });
+});
+
+/*   Frontend Routes     */
+Route::prefix('customer')->group(function () { // /admin/login
+    Route::post('/register', [CustomerAuthController::class,'register'])->name('customerRegister');
+    Route::post('/login', [CustomerAuthController::class,'login'])->name('customerLogin');
 });
