@@ -9,6 +9,7 @@ class CustomerAuthController extends Controller
 {
     //
     public function register(Request $request){
+        //dd($request->all());
         $request->validate([
                             'email'=>'required|email|unique:users',
                             'password'=>'required|min:8'
@@ -18,8 +19,8 @@ class CustomerAuthController extends Controller
         $userco = new User();
         //Set the feels
         //LHS = RHS
-        $userco->name = '';
-        $userco->surname = '';
+        $userco->name = $request->fname;
+        $userco->surname = $request->sname;
         $userco->email = $request->email;
         $userco->password = $request->password;
 

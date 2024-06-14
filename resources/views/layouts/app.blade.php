@@ -11,8 +11,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Favicon -->
+        <link rel="stylesheet" href="https://cdn.usebootstrap/4.3.1/css/bottstrap.min.css" ></link>
         <link rel="shortcut icon" href="/favicon.png">
-
         <!-- Google Fonts -->
         <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;display=swap"
@@ -152,17 +152,7 @@
                                     </div>
                                 </form>
                                 <form class="js-validate" method="POST" action="{{route('customerRegister')}}">
-                                    @csrf
-                                    @if (Session::has('success'))
-                                    <div class = "alert alert-success">
-                                        {{Session::get('success')}}
-                                    </div>
-                                    @endif
-                                    @if (Session::has('failed'))
-                                    <dic class = "alert alert-danger">
-                                        {{Session::get('failed')}}
-                                    </div>
-                                    @endif
+                                @csrf
                                     <!-- Signup -->
                                     <div id="signup" style="display: none; opacity: 0;" data-target-group="idForm">
                                         <!-- Title -->
@@ -172,6 +162,54 @@
                                         </header>
                                         <!-- End Title -->
 
+                                        <!-- Form Group -->
+                                        <div class="form-group">
+                                            <div class="js-form-message js-focus-state">
+                                                <label class="sr-only" for="fname">FirstName </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="fname">
+                                                            <span class="fas fa-user"></span>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="fname" id="firstname"
+                                                        placeholder="Enter Your Name" aria-label="Name"
+                                                        aria-describedby="signupEmailLabel" required
+                                                        data-msg="Please enter a valid Name address."
+                                                        data-error-class="u-has-error" data-success-class="u-has-success">
+                                                </div>
+                                                @if ($errors->has('email'))
+                                                <div>
+                                                    <strong>{{ $errors->first('email')}}</strong>
+                                                </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <!-- End Input -->
+                                        <!-- Form Group -->
+                                        <div class="form-group">
+                                            <div class="js-form-message js-focus-state">
+                                                <label class="sr-only" for="sname">Surname </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="surname">
+                                                            <span class="fas fa-user"></span>
+                                                        </span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="sname" id="sname"
+                                                        placeholder="Enter Your Surname" aria-label="Name"
+                                                        aria-describedby="signupEmailLabel" required
+                                                        data-msg="Please enter a valid Name address."
+                                                        data-error-class="u-has-error" data-success-class="u-has-success">
+                                                </div>
+                                                @if ($errors->has('email'))
+                                                <div>
+                                                    <strong>{{ $errors->first('email')}}</strong>
+                                                </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <!-- End Input -->
                                         <!-- Form Group -->
                                         <div class="form-group">
                                             <div class="js-form-message js-focus-state">
