@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -22,14 +23,30 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view ("admin.category.create");
     }
 
     /**
      * Store a newly created resource in storage.
+     * Store a newly created category in storage.
      */
     public function store(Request $request)
     {
-        //
+        // /dd($request->all());
+
+        $data = $request->only('category_name','description');
+        //ClassName ::Method ();
+
+        Category::create($data);
+       
+        return redirect('/admin/category/create');
+        //1. Query builder 
+
+        //2. Eloqent ORM
+
+        //if you use eloqent ORM then probably you have Model file complesary; 
+
+        return "store";
     }
 
     /**
