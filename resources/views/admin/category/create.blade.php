@@ -30,21 +30,21 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="cat_name">Category Name</label>
-                    <input name="category_name" type="text" class="form-control" id="cat_name" placeholder="Enter category">
+                    <input style="border: 1px solid #000;" name="category_name" type="text" class="form-control" id="cat_name" placeholder="Enter category">
                   </div>
                   <div class="form-group">
                     <label for="cat_desc">Description</label>
-                    <textarea  rows="8" name="description" type="password" class="form-control" id="cat_desc" placeholder="Write Your description here..!"></textarea>
+                    <textarea  style="border: 1px solid #000;" rows="8" name="description" type="password" class="form-control" id="cat_desc" placeholder="Write Your description here..!"></textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Picture</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        <label style="border: 1px solid #000;" class="custom-file-label" for="exampleInputFile">Choose file</label>
                       </div>
                       <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
+                        <a class="input-group-text btn btn-dark">Upload</a>
                       </div>
                     </div>
                   </div>

@@ -9,7 +9,7 @@
                     <h1 class="m-0">Category Information</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6 text-right ">
-                   <a href="/admin/category/create"class="btn btn-purple  rounded-pill">Add New category</a>
+                   <a href="/admin/category/create"class="btn btn-purple  rounded-pill ">Add New category</a>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
