@@ -118,6 +118,11 @@
     <script src="{{url('/')}}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="{{url('/')}}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="{{url('/')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
 
     <!-- AdminLTE App -->
@@ -143,6 +148,7 @@
             });
         });
     </script>
+
 </body>
 
 </html>

@@ -32,21 +32,21 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // /dd($request->all());
-
+        //dd($request->all());
+        
+        $request->validate([
+                                'category_name'=>'required|unique:categories',
+                                'description'=>'',
+                                'cat_image'=>'mimes:jpg,png,jpeg'
+                            ]);
         $data = $request->only('category_name','description');
         //ClassName ::Method ();
 
         Category::create($data);
        
-        return redirect('/admin/category/create');
-        //1. Query builder 
+        return back()->with('success',"A category has been successfully created ");
 
-        //2. Eloqent ORM
-
-        //if you use eloqent ORM then probably you have Model file complesary; 
-
-        return "store";
+      
     }
 
     /**
