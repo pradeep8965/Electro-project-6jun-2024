@@ -18,13 +18,7 @@ class AuthController extends Controller
 
     
     public function dashboard(){
-        //I can check if the user is not directly accesing this page
-        if(Auth::check()){
-            //Every function return something
-            return view('admin.dashboard');
-        }else{
-            return redirect('/admin');
-        }
+        return view('admin.dashboard');
 
     }
     //We can give any name of the class object

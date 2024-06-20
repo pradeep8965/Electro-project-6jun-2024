@@ -6,6 +6,9 @@ use App\Models\Category;
 
 use Illuminate\Http\Request;
 
+//class CildClass extends ParentClass;
+
+//this is example of single inheritance
 class CategoryController extends Controller
 {
     /**
