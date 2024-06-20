@@ -37,11 +37,28 @@ class CategoryController extends Controller
         $request->validate([
                                 'category_name'=>'required|unique:categories',
                                 'description'=>'',
-                                'cat_image'=>'mimes:jpg,png,jpeg'
+                                'cat_image'=>'mimes:jpg,png,jpeg|max:1024'
                             ]);
+                            
+        //dd($request->file('cat_image'));
+        $file = $request->file('cat_image');
+        $dst="";
+        if($file){
+            $path = $file->store('public/cat_images');
+            //If the file is coming 
+            // extract the filename from the path
+
+            $filename = basename ($path);
+
+            $dst='/storage/cat_images/'.$filename;
+            //dd();
+        }
         $data = $request->only('category_name','description');
         //ClassName ::Method ();
+        $data['picture']=$dst;
+        //dd($data);
 
+        
         Category::create($data);
        
         return back()->with('success',"A category has been successfully created ");

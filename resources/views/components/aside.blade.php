@@ -40,7 +40,7 @@
                 data-accordion="false">
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-globe"></i>
                         <p>
                             Product
                             <i class="right fas fa-angle-left"></i>
@@ -66,7 +66,7 @@
                     <ul class="nav nav-treeview">
                        <li classes="nav-item">
                             <a href="/admin/general" class ="nav-link"> 
-                                <i class="far fa-circle nav icon"> </i>
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>General</p>
                             </a>
                        </li>
