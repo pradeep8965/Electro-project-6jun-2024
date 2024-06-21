@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,19 +13,32 @@
   <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+
+  <style>
+    body {
+      background: url('https://www.sagatraining.ca/wp-content/uploads/2018/10/background-images-for-login-form-8.jpg') no-repeat center center fixed;
+      background-size: auto;
+    }
+    .login-box {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
+<div >
   <div class="login-logo">
-    <a href="/index2.html"><b>Admin</b>LTE</a>
+    <a href="/admin"><b>Admin</b>LTE</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg text-bold">Sign in</p>
       @if (Session::has('failed'))
           <div class="alert alert-danger">
-              {{Session::get('failed')}}
+              {{ Session::get('failed') }}
           </div>
       @endif
       <form action="{{ route('login') }}" method="POST">
@@ -39,13 +51,11 @@
             </div>
           </div>
           
-            @error('email')
+          @error('email')
               <div class="alert alert-danger" role="alert">
-                {{$message}}
+                {{ $message }}
               </div>
-            @enderror
-          
-         
+          @enderror
         </div>
         <div class="input-group mb-3">
           <input name="password" type="password" class="form-control" placeholder="Password">
@@ -56,9 +66,9 @@
           </div>
           @error('password')
               <div class="alert alert-danger" role="alert">
-                {{$message}}
+                {{ $message }}
               </div>
-            @enderror
+          @enderror
         </div>
         <div class="row">
           <div class="col-8">
@@ -89,10 +99,10 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
+        <a href="forgot-password.html">Forgot password</a>
       </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="register.html" class="text-center">Register a new user</a>
       </p>
     </div>
     <!-- /.login-card-body -->

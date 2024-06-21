@@ -16,8 +16,22 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        //Getb the category form database 
+        //1. QUERY BUILDER
+
+        //2. Eleqouent ORM {Object relation maper}
+
+
+        $categories = Category::all();
+        //dd($categories);
+
+        
+        //then pass the data to view
+
+            
         // return "index";
-       return view('admin.category.index');
+        //return is the last statement for every function..
+       return view('admin.category.index',['categories'=>$categories]);
     }
 
     /**
