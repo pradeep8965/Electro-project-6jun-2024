@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard</title>
+
+       <!-- CSRF Token -->
+       <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -147,10 +150,11 @@
         });
         
     </script>
-    <script>
-            document.querySelector('.a_delcategory').addEventListener('click', ()=>{
-                console.log('OKOKOKOKOKOK');
-           
+    <!-- <script>
+      
+                
+                document.querySelector('.a_delcategory').addEventListener('click', ()=>{
+                    console.log('OKOKOKOKOKOK');
             Swal.fire({
                             title: 'Are you sure?',
                             text: "You won't be able to recover it..!",
@@ -168,8 +172,8 @@
                                 });
                             }
                         });
-                    });
-    </script>
+                });
+    </script> -->
 </body>
 
 </html>

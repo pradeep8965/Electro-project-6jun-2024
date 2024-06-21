@@ -6,10 +6,13 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin/dashboard" class="nav-link">Home</a>
+            <a href="/admin/dashboard" class="nav-link" style="font-weight:bold;">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="/admin/logout" class="nav-link" style="font-weight:bold;">Logout</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/category" class="nav-link" style="font-weight:bold;">Categories</a>
         </li>
     </ul>
 
@@ -37,7 +40,6 @@
                 </form>
             </div>
         </li>
-
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">

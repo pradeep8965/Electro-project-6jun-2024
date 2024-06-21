@@ -25,6 +25,15 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+    .card {
+        border-radius: 10px; /* Adjust the border radius as needed */
+        /* Other styling properties for the card */
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        padding: 20px;
+        margin: 20px;
+    }
   </style>
 </head>
 <body class="hold-transition login-page">
@@ -35,7 +44,9 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg text-bold">Sign in</p>
+      <h3 class="login-box-msg text-bold">Sign in
+        <span class="fas fa-user"></span>
+      </h3>
       @if (Session::has('failed'))
           <div class="alert alert-danger">
               {{ Session::get('failed') }}
