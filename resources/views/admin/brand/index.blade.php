@@ -47,7 +47,7 @@
                         @endif
                       </td>
                       <td>
-                        <a href="#" class="btn btn-outline-info rounded-circle">
+                        <a href="#" class="btn btn-outline-primary rounded-circle">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>
                         <form method="POST" action="{{url('/')}}/admin/brand/{{$brand->brand_id}}">

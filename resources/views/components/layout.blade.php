@@ -50,7 +50,17 @@
       background-color: #FFF1DC;
       color: white;
     }
-    </style>
+    .img-circle {
+        border-radius: 50%;
+        width: 100px; /* Adjust the size as needed */
+        height: 100px; /* Ensure it’s a square to maintain the circle shape */
+        object-fit: cover; /* Ensures the image covers the container without distortion */
+    }
+
+    .profile-user-img {
+        /* Additional styles for the profile image if needed */
+    }
+</style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
