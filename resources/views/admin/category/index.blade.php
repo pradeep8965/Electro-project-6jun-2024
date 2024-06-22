@@ -52,9 +52,13 @@
                                             <a href="#" class="btn btn-outline-info rounded-circle">
                                                 <i class="fa-regular fa-pen-to-square"></i>
                                             </a>
-                                            <button type="button" class="btn btn-outline-danger rounded-circle delete-button" data-id="{{ $category->id }}">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
+                                            <form method="POST" action="{{url('/')}}/admin/brand/{{$brand->id}}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="button" class="btn btn-outline-danger rounded-circle delete-button a_delcategory" data-id="{{ $category->id }}">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -70,52 +74,4 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const deleteButtons = document.querySelectorAll('.delete-button');
-            deleteButtons.forEach(button => {
-                button.addEventListener('click', function (event) {
-                    const categoryId = this.getAttribute('data-id');
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            fetch(`/categories/${categoryId}`, {
-                                method: 'DELETE',
-                                headers: {
-                                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                    'Content-Type': 'application/json'
-                                },
-                            }).then(response => response.json())
-                            .then(data => {
-                                if (data.success) {
-                                    Swal.fire({
-                                        title: "Deleted!",
-                                        text: data.success,
-                                        icon: "success"
-                                    }).then(() => {
-                                        location.reload();
-                                    });
-                                } 
-                            }).catch(error => {
-                                console.error('Error:', error);
-                                Swal.fire({
-                                    title: "Error!",
-                                    text: "There was an error deleting the category.",
-                                    icon: "error"
-                                });
-                            });
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 </x-layout>

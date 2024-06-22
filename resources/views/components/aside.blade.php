@@ -39,81 +39,42 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-globe"></i>
-                        <p>
-                            Product
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-shopping-cart"></i>
+              <p>
+                Product
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>
+                   Brand
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/admin/brand" class="nav-link">
+                      <i class="far fa-dot-circle nav-icon"></i>
+                      <p>All  Brands</p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/category" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Category</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link">
-                        <i class="nav-icon fas fa-heart"></i>
-                        <p>
-                            My Own Pages
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                       <li classes="nav-item">
-                            <a href="/admin/general" class ="nav-link"> 
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>General</p>
-                            </a>
-                       </li>
-                        <li class="nav-item">
-                            <a href="/admin/icons" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Icons</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/buttons" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Buttons</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/sliders" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Sliders</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/modals" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Modals</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/navbar" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Navbar</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/timeline" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Timeline</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/ribbons" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Ribbons</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                  </li>
+                
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/category" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Category</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+              
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

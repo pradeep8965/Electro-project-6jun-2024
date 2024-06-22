@@ -11,9 +11,9 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="/admin/logout" class="nav-link" style="font-weight:bold;">Logout</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
+      <!--   <li class="nav-item d-none d-sm-inline-block">
             <a href="/admin/category" class="nav-link" style="font-weight:bold;">Categories</a>
-        </li>
+        </li> -->
     </ul>
 
     <!-- Right navbar links -->

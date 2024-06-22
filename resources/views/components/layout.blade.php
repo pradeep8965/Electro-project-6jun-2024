@@ -150,9 +150,7 @@
         });
         
     </script>
-    <!-- <script>
-      
-                
+    <script> 
                 document.querySelector('.a_delcategory').addEventListener('click', ()=>{
                     console.log('OKOKOKOKOKOK');
             Swal.fire({
@@ -172,8 +170,7 @@
                                 });
                             }
                         });
-                });
-    </script> -->
+                    }); 
+    </script>
 </body>
-
 </html>

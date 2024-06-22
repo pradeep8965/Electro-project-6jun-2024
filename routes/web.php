@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 use App\Http\Middleware\AdminAuth;
 
 Route::get('/', function () {
@@ -29,10 +30,9 @@ Route::prefix('admin')->middleware(AdminAuth::class)->group(function () { // /ad
     Route::get('/logout',[AuthController::class,'logout']);
     Route::get('/dashboard', [AuthController::class,'dashboard'])->name('admin_dashboard');
     Route::resource('category', CategoryController::class);
-    Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::resource('brand',BrandController::class);
 
 
-    
     /* Only for practice */
 
         Route::get('/general', function () {

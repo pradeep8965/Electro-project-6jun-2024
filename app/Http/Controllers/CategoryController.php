@@ -6,7 +6,7 @@ use App\Models\Category;
 
 use Illuminate\Http\Request;
 
-//class CildClass extends ParentClass;
+//class ChildClass extends ParentClass;
 
 //this is example of single inheritance
 class CategoryController extends Controller
@@ -112,11 +112,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        if ($category) {
-            $category->delete();
-            return response()->json(['success' => 'Category deleted successfully.']);
-        }
-        return response()->json(['error' => 'Category not found.'], 404);
+        $category->delete();
+        return redirect()->route('category.index')->with('success', 'category delete successfully.');
     }
 }
