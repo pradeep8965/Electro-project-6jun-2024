@@ -50,9 +50,13 @@
                         <a href="#" class="btn btn-outline-info rounded-circle">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>
-                        <button type="button" class="btn btn-outline-danger rounded-circle delete-button a_delbrand" data-id="{{ $brand->id }}">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
+                        <form method="POST" action="{{url('/')}}/admin/brand/{{$brand->brand_id}}">
+                          @csrf
+                          @method('DELETE')
+                          <button type="button" class="btn btn-outline-danger rounded-circle delete-button a_delcategory" data-id="{{ $brand->id }}">
+                              <i class="fa-solid fa-trash"></i>
+                          </button>
+                      </form>
                       </td>
                     </tr>
                     @endforeach

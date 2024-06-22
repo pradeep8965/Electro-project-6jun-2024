@@ -52,7 +52,7 @@
                                             <a href="#" class="btn btn-outline-info rounded-circle">
                                                 <i class="fa-regular fa-pen-to-square"></i>
                                             </a>
-                                            <form method="POST" action="{{url('/')}}/admin/brand/{{$brand->id}}">
+                                            <form method="POST" action="{{url('/')}}/admin/category/{{$category->category_id}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="button" class="btn btn-outline-danger rounded-circle delete-button a_delcategory" data-id="{{ $category->id }}">
