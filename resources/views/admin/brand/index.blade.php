@@ -1,7 +1,7 @@
 <x-layout>
     <!-- Content Header (Page header) -->
     <div class="content-header">
-        <div class="container-fluid">
+        <div class="container-fluid ">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Brands Information</h1>
@@ -31,6 +31,7 @@
                     <th>Description</th>
                     <th>Picture</th>
                     <th>Action</th>
+                    <th>Action2</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -58,11 +59,19 @@
                           </button>
                       </form>
                       </td>
+                      <td> 
+                        <!-- Adding the new switch input -->
+                        <div class="text-center mt-4 ">
+                                <label class="custom-toggle">
+                                    <input type="checkbox" onchange="updateSettings(this, 'color_filter_activation')" checked="">
+                                    <span class="slider round"></span>
+                                </label>
+                        </div>
+                      </td>
                     </tr>
                     @endforeach
                   </tbody>
                 </table>
-              </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->

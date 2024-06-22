@@ -105,6 +105,39 @@
                   <div class="active tab-pane" id="activity">
                     <!-- Post -->
                     <div class="post">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="https://static.tnnbt.in/thumb/msid-96658527,thumbsize-190666,width-1280,height-720,resizemode-75/96658527.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#"> श्री उज्जैन महाँकालेश्वर दर्शन</a>
+                        </span>
+                        <span class="description">Shared New Post At - 7:30 AM today</span>
+                      </div>
+                      <!-- /.user-block -->
+                      <p>
+                        ॐ मृत्युंजयाय रुद्राय नीलकण्ठाय शम्भवे।
+                        अमृतेशाय शर्वाय महादेवाय ते नम: ॐ॥🔱
+                      </p>
+                      <div class="row mb-3">
+                        <div class="col-sm-12">
+                          <img class="img-fluid" src="https://static.tnnbt.in/thumb/msid-96658527,thumbsize-190666,width-1280,height-720,resizemode-75/96658527.jpg" alt="Photo">
+                        </div>
+                      </div>
+                      <p>
+                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
+                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                        <span class="float-right">
+                          <a href="#" class="link-black text-sm">
+                            <i class="far fa-comments mr-1"></i> Comments (5)
+                          </a>
+                        </span>
+                      </p>
+                      
+                      <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                    </div>
+                    <!-- /.post -->
+                    
+                    <!-- Post -->
+                    <div class="post">
                         <div class="user-block">
                         <img class="img-circle img-bordered-sm" src="https://i.imgur.com/nEN37bV.jpeg" alt="User Image">
                         <span class="username">
@@ -150,39 +183,6 @@
                         <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
                     </div>
                     <!-- /.post -->
-                    <!-- Post -->
-                    <div class="post">
-                      <div class="user-block">
-                        <img class="img-circle img-bordered-sm" src="https://static.tnnbt.in/thumb/msid-96658527,thumbsize-190666,width-1280,height-720,resizemode-75/96658527.jpg" alt="user image">
-                        <span class="username">
-                          <a href="#"> श्री उज्जैन महाँकालेश्वर दर्शन</a>
-                        </span>
-                        <span class="description">Shared New Post At - 7:30 AM today</span>
-                      </div>
-                      <!-- /.user-block -->
-                      <p>
-                      ॐ मृत्युंजयाय रुद्राय नीलकण्ठाय शम्भवे।
-                      अमृतेशाय शर्वाय महादेवाय ते नम: ॐ॥🔱
-                      </p>
-                    <div class="row mb-3">
-                        <div class="col-sm-12">
-                        <img class="img-fluid" src="https://static.tnnbt.in/thumb/msid-96658527,thumbsize-190666,width-1280,height-720,resizemode-75/96658527.jpg" alt="Photo">
-                        </div>
-                    </div>
-                      <p>
-                        <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                        <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                        <span class="float-right">
-                          <a href="#" class="link-black text-sm">
-                            <i class="far fa-comments mr-1"></i> Comments (5)
-                          </a>
-                        </span>
-                      </p>
-
-                      <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
-                    </div>
-                    <!-- /.post -->
-
                     <!-- Post -->
                     <div class="post clearfix">
                       <div class="user-block">

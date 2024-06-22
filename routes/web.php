@@ -35,10 +35,10 @@ Route::prefix('admin')->middleware(AdminAuth::class)->group(function () { // /ad
 
     /* Only for practice */
 
-      /*   Route::get('/profile', function () {
-            // Matches The "/admin/profile" URL
-            return view('admin.profile');
-            // profile.blade.php 
+      /*   Route::get('/user', function () {
+            // Matches The "/admin/user" URL
+            return view('admin.user');
+            // user.blade.php 
         }); */
         Route::get('/general', function () {
             // Matches The "/admin/login" URL
