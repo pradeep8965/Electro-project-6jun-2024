@@ -32,7 +32,7 @@ class BrandController extends Controller
     {
         //
 
-        return view ('admin.brand.create');
+        return view ('admin.brand.index');
     }
 
     /**
@@ -46,7 +46,6 @@ class BrandController extends Controller
         
         $request->validate([
             'brand_name'=>'required|unique:brands',
-            'description'=>'',
             'brand_image'=>'mimes:jpg,png,jpeg|max:2048'
         ]);
         
@@ -66,7 +65,7 @@ class BrandController extends Controller
         //dd();
         }
 
-        $data = $request->only('brand_name','description');
+        $data = $request->only('brand_name',);
         //ClassName ::Method ();
         $data['picture']=$dst;
         //dd($data);

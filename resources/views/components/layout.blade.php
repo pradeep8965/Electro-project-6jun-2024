@@ -16,6 +16,8 @@
     
     <!-- 5Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Include DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{url('/')}}/plugins/fontawesome-free/css/all.min.css">
@@ -39,16 +41,16 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{url('/')}}/plugins/summernote/summernote-bs4.min.css">
     <style>
-        .p_tbdr{
-            border:1px dashed black;
-        }
-        .btn-purple {
-      background-color: #6f42c1;
-      color: white;
+    .p_tbdr{
+        border:1px dashed black;
+    }
+    .btn-purple {
+    background-color: #6f42c1;
+    color: white;
     }
     .btn-purple2 {
-      background-color: #FFF1DC;
-      color: white;
+    background-color: #FFF1DC;
+    color: white;
     }
     .img-circle {
         border-radius: 50%;
@@ -60,6 +62,26 @@
     .profile-user-img {
         /* Additional styles for the profile image if needed */
     }
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0.5em 1em; /* Change padding */
+        margin: 0.2em; /* Change margin */
+        border-radius: 5px; /* Add border radius */
+        border: 1px solid #ddd; /* Add border */
+        background-color: #f8f9fa; /* Background color */
+        color: #333; /* Text color */
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        background-color: #007bff; /* Background color on hover */
+        color: #fff; /* Text color on hover */
+        border: 1px solid #007bff; /* Border color on hover */
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+        background-color: #007bff; /* Background color for active page */
+        color: #fff; /* Text color for active page */
+        border: 1px solid #007bff; /* Border color for active page */
+    }
 </style>
 </head>
 
@@ -67,10 +89,10 @@
     <div class="wrapper">
 
         <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
+       <!--  <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="{{url('/')}}/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
                 width="60">
-        </div>
+        </div> -->
 
         <x-header />
         <x-aside />
@@ -131,6 +153,8 @@
     <script src="{{url('/')}}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="{{url('/')}}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="{{url('/')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
@@ -145,42 +169,60 @@
     <script>
         $(function () {
             $("#example1").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                "responsive": true, 
+                "lengthChange": false, 
+                "autoWidth": false,
+                "pageLength": 5, // Fixed number of entries per page
+                "info": true, // Display the entry count information
+                "buttons": ["copy", "excel", "pdf", "print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
             $('#example2').DataTable({
                 "paging": true,
                 "lengthChange": false,
+                "pageLength": 5, // Fixed number of entries per page
                 "searching": false,
                 "ordering": true,
-                "info": true,
+                "info": true, // Display the entry count information
                 "autoWidth": false,
                 "responsive": true,
             });
         });
-        
     </script>
     <script> 
-                document.querySelector('.a_delcategory').addEventListener('click', ()=>{
-                    console.log('OKOKOKOKOKOK');
-            Swal.fire({
-                            title: 'Are you sure?',
-                            text: "You won't be able to recover it..!",
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'Yes, delete it!'
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                Swal.fire({
-                                title: "Deleted!",
-                                text: "Your category     has been deleted.",
-                                icon: "success"
-                                });
-                            }
+        document.querySelector('.a_delcategory').addEventListener('click', ()=>{
+            console.log('OKOKOKOKOKOK');
+        Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to recover it..!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                        title: "Deleted!",
+                        text: "Your category has been deleted.",
+                        icon: "success"
                         });
-                    }); 
+                    }
+                });
+         }); 
+    </script>
+    <script>
+        $(document).ready(function() {
+        $('#example1').DataTable({
+            "responsive": true, 
+            "lengthChange": false, 
+            "autoWidth": false,
+            "pageLength": 10, // Fixed number of entries per page
+            "info": true, // Display the entry count information
+            "pagingType": "full_numbers", // Change pagination view
+            "buttons": ["copy", "excel", "pdf", "print"]
+        });
+    });
     </script>
 </body>
 </html>
