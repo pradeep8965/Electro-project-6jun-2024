@@ -33,7 +33,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
@@ -47,7 +46,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              
+              <li class="nav-item">
+                <a href="/admin/product/create" class="nav-link">
+                  <i class="far fa-dot-circle nav-icon"></i>
+                  <p>Add New Product</p>
+                </a>
+              </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-dot-circle nav-icon"></i>

@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ProductController;
 use App\Http\Middleware\AdminAuth;
 
 Route::get('/', function () {
@@ -30,6 +31,7 @@ Route::prefix('admin')->middleware(AdminAuth::class)->group(function () { // /ad
     Route::get('/dashboard', [AuthController::class,'dashboard'])->name('admin_dashboard');
     Route::resource('category', CategoryController::class);
     Route::resource('brand',BrandController::class);
+    Route::resource('product',ProductController::class);
 
 
     /* Only for practice */
