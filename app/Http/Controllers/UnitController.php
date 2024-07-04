@@ -14,7 +14,8 @@ class UnitController extends Controller
      */
     public function index()
     {
-        return view('admin/unit.index');
+        $units = Unit::all();
+        return view('admin/unit.index', compact('units'));
         //
     }
 
@@ -33,6 +34,7 @@ class UnitController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**
@@ -49,6 +51,7 @@ class UnitController extends Controller
     public function edit(Unit $unit)
     {
         //
+        
     }
 
     /**

@@ -35,19 +35,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($units as $unit)
                                     <tr>
-                                        <td>1</td>
-                                        <td>KG</td>
-                                        <td>KILOGRAM</td>
+                                        <td>{{ $unit->id }}</td>
+                                        <td>{{ $unit->unit_name }}</td>
+                                        <td>{{ $unit->unit_desc }}</td>
                                         <td>
                                             <a href="#" class="btn btn-outline-success rounded-circle">
-                                                <i class="fa-regular fa-eye  "></i>
+                                                <i class="fa-regular fa-eye "></i>
                                             </a>
                                             <a href="#" class="btn btn-outline-info rounded-circle">
                                                 <i class="fa-regular fa-pen-to-square"></i>
                                             </a>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
