@@ -12,11 +12,11 @@
         <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         
-        <!-- 5Bootstrap 5 -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <!-- Include DataTables CSS -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-        
+        <!-- 5Bootstrap 5 -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <!-- Include DataTables CSS -->
+        <link rel="stylesheet" href="https://richtexteditor.com/richtexteditor/rte_theme_default.css" />
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{url('/')}}/plugins/fontawesome-free/css/all.min.css">
         <!-- Font Awasome  -->
@@ -123,7 +123,9 @@
         </script>
         <!-- Bootstrap 4 -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- ChartJS -->
+        <!-- RichTextEditor -->
+        <script src="https://richtexteditor.com/richtexteditor/rte.js"></script>
+        <!-- ChartJS -->
         <script src="{{url('/')}}/plugins/chart.js/Chart.min.js"></script>
         <!-- Sparkline -->
         <script src="{{url('/')}}/plugins/sparklines/sparkline.js"></script>
@@ -157,8 +159,6 @@
         
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-
-
         <!-- AdminLTE App -->
         <script src="{{url('/')}}/dist/js/adminlte.js"></script>
         <!-- AdminLTE for demo purposes -->
@@ -187,19 +187,21 @@
                     "responsive": true,
                 });
             });
-        </script>
-        <script>
-            $(document).ready(function() {
-            $('#example1').DataTable({
-                "responsive": true, 
-                "lengthChange": false, 
-                "autoWidth": false,
-                "pageLength": 10, // Fixed number of entries per page
-                "info": true, // Display the entry count information
-                "pagingType": "full_numbers", // Change pagination view
-                "buttons": ["copy", "excel", "pdf", "print"]
+
+                $(document).ready(function() {
+                $('#example1').DataTable({
+                    "responsive": true, 
+                    "lengthChange": false, 
+                    "autoWidth": false,
+                    "pageLength": 10, // Fixed number of entries per page
+                    "info": true, // Display the entry count information
+                    "pagingType": "full_numbers", // Change pagination view
+                    "buttons": ["copy", "excel", "pdf", "print"]
+                });
             });
-        });
-        </script>    
+                var editor1cfg = {}
+                editor1cfg.toolbar = "basic";
+                var editor1 = new RichTextEditor("#product_desc", editor1cfg);
+        </script>  
     </body>
 </html>

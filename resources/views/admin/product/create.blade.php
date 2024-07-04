@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6 a_tbdr">
-                <h1 class="m-0 fs-1 text-bold" style="  text-shadow: 2px 2px ; font-family:'Arial',; padding: 10px;  ">Add New Product</h1>
+                <h1 class="m-0 fs-1 text-bold" style="  text-shadow: 2px 2px ; font-family:'Arial',; padding: 10px;">Add New Product</h1>
                 </div>
                 <!-- <div class="col-sm-6 a_tbdr text-right">
                     <a href="{{route('category.create')}}" class="btn btn-primary">Add New Category</a>
@@ -25,7 +25,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form method="GET" action="" enctype="multipart/form-data">
+                        <form method="POST" action="" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -70,7 +70,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="mrp">MRP</label>
-                                            <input id="mrp" name="mrp" type="number" class="form-control"  placeholder="MRP"/>
+                                            <input id="mrp" name="mrp" type="number" class="form-control"  placeholder="MRP..."/>
                                         </div>
                                     </div>
                                     <div class="col">

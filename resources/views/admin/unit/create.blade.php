@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6 a_tbdr">
-                    <h1 class="m-0">Add New Category</h1>
+                    <h1 class="m-0 fs-1 text-bold" style="  text-shadow: 2px 2px ; font-family:'Arial',; padding: 10px;">Add New Unit...</h1>
                 </div>
                 <!-- <div class="col-sm-6 a_tbdr text-right">
                     <a href="{{route('category.create')}}" class="btn btn-primary">Add New Category</a>
@@ -36,7 +36,7 @@
                 <!-- general form elements -->
                     <div class="card card-info">
                         <div class="card-header">
-                            <h3 class="card-title">Add New Category</h3>
+                            <h3 class="card-title">Add New Unit</h3>
                         </div>
                         <!-- /.card-header -->
                         
@@ -45,40 +45,24 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="cat_name">Category Name</label>
-                                    <input  style="border: 1px solid #000;" name="category_name" type="text" class="form-control" id="cat_name" placeholder="Enter Category">
+                                    <label for="unit_name">Unit Name</label>
+                                    <input  type="text" name="unit_name"  class="form-control" id="unit_name"  style="border: 1px solid #000;" placeholder="Enter Unit Name ">
                                 </div>
-                                @error('category_name')
+                                @error('unit_name')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                 <div class="form-group">
-                                    <label for="cat_desc">Description</label>
-                                    <textarea   style="border: 1px solid #000;" rows="10" cols="" name="description" class="form-control" id="cat_desc" placeholder="Password"> </textarea>
+                                    <label for="unit_desc">Description</label>
+                                    <textarea style="border: 1px solid #000;" rows="3" cols="" name="unit_desc" class="form-control" id="unit_desc" placeholder=""> </textarea>
                                 </div>
-                                @error('description')
+                                @error('unit_desc')
                                     <div class="alert alert-danger" role="alert" style="background-color: #ff0000; color: #fff;">{{ $message }}</div>
                                 @enderror
-                                <div class="form-group">
-                                    @error('cat_image')
-                                        <div class="alert alert-danger"  style="background-color: #ff0000; color: #fff;" role="alert">{{ $message }}</div>
-                                    @enderror
-                                    <label for="exampleInputFile">File input (Please upload 1MB less file, jpg,jpeg or png only)</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" name="cat_image" class="custom-file-input" id="exampleInputFile">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Upload</span>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-outline-dark">Submit</button>
                             </div>
                         </form>
                     </div>

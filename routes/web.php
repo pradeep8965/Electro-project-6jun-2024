@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UnitController;
 use App\Http\Middleware\AdminAuth;
 
 Route::get('/', function () {
@@ -32,15 +33,16 @@ Route::prefix('admin')->middleware(AdminAuth::class)->group(function () { // /ad
     Route::resource('category', CategoryController::class);
     Route::resource('brand',BrandController::class);
     Route::resource('product',ProductController::class);
+    Route::resource('unit',UnitController::class);
 
 
     /* Only for practice */
 
-      /*   Route::get('/user', function () {
+        Route::get('/profile', function () {
             // Matches The "/admin/user" URL
-            return view('admin.user');
-            // user.blade.php 
-        }); */
+            return view('admin.profile');
+            // profile.blade.php 
+        });
         Route::get('/general', function () {
             // Matches The "/admin/login" URL
             return view('admin.general');
