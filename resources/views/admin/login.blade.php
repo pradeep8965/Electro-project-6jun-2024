@@ -16,7 +16,7 @@
 
   <style>
     body {
-      background: url('https://www.sagatraining.ca/wp-content/uploads/2018/10/background-images-for-login-form-8.jpg') no-repeat center center fixed;
+      background: url('https://i.imgur.com/n4XF2a3.jpeg') no-repeat center center fixed;
       background-size: auto;
     }
     .login-box {
@@ -39,11 +39,13 @@
 <body class="hold-transition login-page">
 <div >
   <div class="login-logo">
-    <a href="/admin"><b>Admin</b>LTE</a>
+    <a href="/admin">
+      <img width="200" src="{{$app_logo}}"/>
+    </a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body">
+    <div class="card-body login-card-body ">
       <h3 class="login-box-msg text-bold">Sign in
         <span class="fas fa-user"></span>
       </h3>

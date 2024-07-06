@@ -8,17 +8,29 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    //1. property
+    //1. Proeprty
 
+    //2. Constructor
 
-    //2.constructor
+    //3. Method
 
-
-    //3.method
-
-    
     public function dashboard(){
-        return view('admin.dashboard');
+        //Brands
+                            //Class::method()
+        $brands = \App\Models\Brand::all();
+        //dd( );1
+        //Categories
+        $categories = \App\Models\Category::all();
+        //Units
+        $units = \App\Models\Unit::all();
+        //Products
+        $products = \App\Models\Product::all();
+        return view('admin.dashboard',[
+                                        'categories'=>count($categories),
+                                        'brands'=>count($brands),
+                                        'units'=>count($units),
+                                        'products'=>count($products),
+                                      ]);
 
     }
     //We can give any name of the class object
@@ -56,6 +68,7 @@ class AuthController extends Controller
             //Not empty
             //dd('User exits');
             //return 
+            // Create some session variables
             // Store user information in session variables
             //var_dump($user->name);
             //var_dump($user->surname);
@@ -86,4 +99,3 @@ class AuthController extends Controller
 
 
 }
-
