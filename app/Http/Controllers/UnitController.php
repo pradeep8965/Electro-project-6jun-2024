@@ -15,7 +15,7 @@ class UnitController extends Controller
     public function index()
     {
         $units = Unit::all();
-        return view('admin/unit.index', compact('units'));
+        return view('admin.unit.index',['units'=> $units]);
         //
     }
 

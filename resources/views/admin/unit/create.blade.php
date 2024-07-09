@@ -1,76 +1,57 @@
 
-<x-layout title="Create Category"><!-- I will pass data to the layout compoent using prop/ properties -->
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
+<x-layout>
+    <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6 a_tbdr">
-                    <h1 class="m-0 fs-1 text-bold" style="  text-shadow: 2px 2px ; font-family:'Arial',; padding: 10px;">Add New Unit...</h1>
+                <div class="col-sm-6">
+                    <h1>Add Unit Form</h1>
                 </div>
-                <!-- <div class="col-sm-6 a_tbdr text-right">
-                    <a href="{{route('category.create')}}" class="btn btn-primary">Add New Category</a>
-                </div> -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
+            </div>
+        </div>
+    </section>
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-               <!-- left column -->
                 <div class="col-md-12">
-                  @if(Session::has('success'))
-                      <script>
-                          document.addEventListener('DOMContentLoaded', function() {
-                              Swal.fire({
-                                  icon: 'success',
-                                  title: 'Success',
-                                  text: "{{ Session::get('success') }}",
-                                  showConfirmButton: false,
-                                  timer: 5000
-                              });
-                          });
-                      </script>
-                  @endif
-                <!-- general form elements -->
-                    <div class="card card-info">
-                        <div class="card-header">
-                            <h3 class="card-title">Add New Unit</h3>
+                    @if (Session::has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{ Session::get('success') }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                        <!-- /.card-header -->
-                        
-                        <!-- form start -->
-                        <form action="{{route('category.store')}}" method="POST" enctype="multipart/form-data">
+                    @endif
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">New Unit</h3>
+                        </div>
+                       
+                        <form action="{{route('unit.store')}}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="unit_name">Unit Name</label>
-                                    <input  type="text" name="unit_name"  class="form-control" id="unit_name"  style="border: 1px solid #000;" placeholder="Enter Unit Name ">
+                                    <input name="unit_name" value="{{old('unit_name')}}" type="text" class="form-control" id="unit_name"
+                                        placeholder="Enter Unit Name">
                                 </div>
                                 @error('unit_name')
-                                    <div class="alert alert-danger">{{ $message }}</div>
+                                <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                                 <div class="form-group">
-                                    <label for="unit_desc">Description</label>
-                                    <textarea style="border: 1px solid #000;" rows="3" cols="" name="unit_desc" class="form-control" id="unit_desc" placeholder=""> </textarea>
+                                    <label for="unit_desc">Unit Description</label>
+                                    <textarea name="unit_desc" class="form-control" id="unit_desc" rows="5" cols="">{{old('unit_desc')}}</textarea>
                                 </div>
-                                @error('unit_desc')
-                                    <div class="alert alert-danger" role="alert" style="background-color: #ff0000; color: #fff;">{{ $message }}</div>
+                                @error('seo_meta_desc')
+                                <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
+                                
                             </div>
-                            <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-outline-dark">Submit</button>
+                                <button type="submit" class="btn btn-primary">Add Unit</button>
                             </div>
                         </form>
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!--/.col (left) -->
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
-    <!-- /.content -->
 </x-layout>
