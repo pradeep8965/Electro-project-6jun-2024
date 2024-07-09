@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use function Ramsey\Uuid\v1;
 
 class UnitController extends Controller
-{
+    {
     /**
      * Display a listing of the resource.
      */
@@ -34,8 +34,25 @@ class UnitController extends Controller
     public function store(Request $request)
     {
         //
+            
+        $request->validate([
+            'unit_name'=>'required|unique:units',
+            'unit_desc'=>''
+        ]);
         
+        
+        
+        
+        $data = $request->only('unit_name','unit_desc');
+        //ClassName ::Method ();
+
+        Unit::create($data);
+
+        return back()->with('success',"A Unit has been successfully created ");
+
     }
+        
+
 
     /**
      * Display the specified resource.
@@ -43,6 +60,7 @@ class UnitController extends Controller
     public function show(Unit $unit)
     {
         //
+        return 'show';
     }
 
     /**

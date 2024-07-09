@@ -17,6 +17,8 @@ class Product extends Model
         'category_id',
         'mrp',
         'sell_price',
-        'qty_available'
+        'qty_available',
+        'prod_thumbnail_img',
+        'prod_main_img'
     ];
 }

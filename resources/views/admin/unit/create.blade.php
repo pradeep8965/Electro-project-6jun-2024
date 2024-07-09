@@ -29,8 +29,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="unit_name">Unit Name</label>
-                                    <input name="unit_name" value="{{old('unit_name')}}" type="text" class="form-control" id="unit_name"
-                                        placeholder="Enter Unit Name">
+                                    <input name="unit_name" value="{{old('unit_name')}}" type="text" class="form-control" id="unit_name" placeholder="Enter Unit Name">
                                 </div>
                                 @error('unit_name')
                                 <div class="alert alert-danger">{{ $message }}</div>

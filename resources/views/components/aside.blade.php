@@ -4,7 +4,7 @@
   <!-- Brand Logo -->
   <a href="/admin/dashboard" class="brand-link">
     <span class="d-block brand-text font-weight-light text-center">
-        <img width="120" src="{{$appData['app_logo']}}" />
+        <img width="120"  src="{{$appData['app_logo']}}" />
     </span>
   </a>
     <!-- Sidebar -->
@@ -45,9 +45,9 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="/admin/product/create" class="nav-link">
+              <a href="{{route('product.index')}}" class="nav-link">
                 <i class="far fa-dot-circle nav-icon"></i>
-                <p>Add New Product</p>
+                <p>All Product's</p>
               </a>
             </li>
             <li class="nav-item">
