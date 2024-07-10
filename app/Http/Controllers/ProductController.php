@@ -54,6 +54,19 @@ class ProductController extends Controller
 
         //2. ServerSide PHP/Laravel Fraemwork MVC
 
+        $request->validate([
+            'product_name' => 'required',
+            'product_desc' => 'required',
+            'brand_id' => 'required|integer',
+            'unit_id' => 'required|integer',
+            'category_id' => 'required|integer',
+            'mrp' => 'required|numeric',
+            'sell_price' => 'required|numeric',
+            'qty_available' => 'required|integer',
+            'prod_thumbnail_img' => 'required|dimensions:width=212,height=200|max:2048|mimes:jpg,png,jpeg',
+            'prod_main_img' => 'required|dimensions:width=720,height=660|max:2048|mimes:jpg,png,jpeg',
+        ]);
+
         //Direct INsert
 
         $data = $request->all();
