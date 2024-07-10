@@ -19,6 +19,12 @@
             <div class="row">
                 <!-- left column -->
                 <div class="col-md-12">
+                    @if (Session::has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{ Session::get('success') }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title" >Product Information</h3>
@@ -32,10 +38,16 @@
                                     <label for="product_name">Product Name</label>
                                     <input required="text" name="product_name" class="form-control" id="product_name" placeholder="">
                                 </div>
+                                @error('product_name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="form-group">
                                     <label for="product_desc">Product Description</label>
                                     <textarea required name="product_desc" class="form-control" id="product_desc" placeholder=""></textarea>
                                 </div>
+                                @error('product_desc')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
@@ -46,6 +58,9 @@
                                                 @endforeach
                                             </select>
                                         </div>  
+                                        @error('unit_id')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
@@ -56,6 +71,9 @@
                                                 @endforeach
                                             </select>
                                         </div>  
+                                        @error('brand_id')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
@@ -66,24 +84,36 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        @error('category_id')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="mrp">MRP</label>
                                             <input required id="mrp" name="mrp" type="number" class="form-control" min="1" placeholder="MRP..."/>
                                         </div>
+                                        @error('mrp')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="sell_price">Sell Price</label>
                                             <input required id="sell_price" name="sell_price" type="number" class="form-control"  min="1"  placeholder="Selling Price"/>
                                         </div>
+                                        @error('sell_price')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="qty_available">Available Quantity</label>
                                             <input required id="qty_available" name="qty_available" type="number" class="form-control"   min="1" placeholder="Enter Quantity"/>
                                         </div>
+                                        @error('qty_available')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -98,6 +128,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                    @error('prod_thumbnail_img')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 <div class="form-group">
                                     <label for="exampleInputFile">Product Main Image (720 × 660)</label>
                                     <div class="input-group">
@@ -110,6 +143,9 @@
                                         </div>
                                     </div> 
                                 </div>
+                                    @error('prod_main_img')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
