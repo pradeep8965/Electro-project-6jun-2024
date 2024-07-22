@@ -29,12 +29,11 @@
                                 <thead>
                                     <tr >
                                         <th>#Id</th>
-                                        <th>Thumbnail</th>
                                         <th>Product Name</th>
                                         <th>Product Description</th>
-                                        <th>Picture</th>
-                                        <th>MRP</th>
-                                        <th>Sell Price</th>
+                                        <th>Brand</th>
+                                        <th>CategoryName</th>
+                                        <th>Thumbnail</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -42,6 +41,10 @@
                                    @foreach ($products as $product)
                                    <tr class="align-items-center">
                                         <td  style="text-align: center; vertical-align: middle;">{{ $product->id }}</td>
+                                        <td  style="text-align: center; vertical-align: middle;">{{$product->product_name}}</td>
+                                        <td  style="text-align: center; vertical-align: middle;">{{$product->product_desc}}</td>
+                                        <td>{{$product->brand_name}}</td>
+                                        <td>{{$product->category_name}}</td>
                                         <td >
                                             @if(isset($product->prod_thumbnail_img) && !empty($product->prod_thumbnail_img))
                                             <img width="60" style="display: block; margin-left: auto; margin-right: auto;" src="{{ asset('/').ltrim($product->prod_thumbnail_img,'/') }}" />
@@ -49,20 +52,21 @@
                                             &#x2D; - &#45;
                                             @endif
                                         </td>
-                                        <td  style="text-align: center; vertical-align: middle;">{{$product->product_name}}</td>
-                                        <td  style="text-align: center; vertical-align: middle;">{{$product->product_desc}}</td>
-                                        <td  style="text-align: center; vertical-align: middle;">
+                                       <!--  <td  style="text-align: center; vertical-align: middle;">
                                             @if(isset($product->prod_main_img) && !empty($product->prod_main_img))
                                             <img width="60" style="display: block; margin-left: auto; margin-right: auto;" src="{{ asset('/').ltrim($product->prod_main_img,'/') }}" />
                                             @else
                                             &#x2D; - &#45;
                                             @endif
-                                        </td>
+                                        </td> 
                                         <td  style="text-align: center; vertical-align: middle;">{{$product->mrp}}</td>
-                                        <td  style="text-align: center; vertical-align: middle;">{{$product->sell_price}}</td>
+                                        <td  style="text-align: center; vertical-align: middle;">{{$product->sell_price}}</td> -->
                                         <td>
                                             <a href="#" class="btn btn-outline-primary rounded-circle">
                                                 <i class="fa-regular fa-eye"></i>
+                                            </a>
+                                            <a href="#" class="btn btn-outline-primary rounded-circle">
+                                                <i class="fa-regular fa-pen-to-square"></i>
                                             </a>
                                             <a href="#" class="btn btn-outline-danger rounded-circle delete-button" >
                                                 <i class="fa-solid fa-trash"></i>

@@ -17,9 +17,18 @@ class ProductController extends Controller
     {
         // Fetch all products from the database
         // Retrieve products from the database
+        
         $products = Product::all();
 
         // Pass products to the view
+
+        $products = Product
+        ::join('brands','products.brand_id','=','brands.id')
+        ->join('units','products.unit_id','=','units.id')
+        ->join('categories','products.category_id','=','categories.category_id')
+        ->select('products.id as product_id', 'products.*', 'brands.*', 'units.*', 'categories.*')
+        ->get();
+        
         return view('admin.product.index', compact('products'));
     }
 
