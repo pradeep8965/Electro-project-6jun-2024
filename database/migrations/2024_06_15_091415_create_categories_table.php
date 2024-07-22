@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('category_name')->nullable()->unique();
             $table->string('description')->nullable();
             $table->string('picture')->nullable();
+            $table->string('parent_category_id')->nullable();
+            $table->string('rank')->nullable();
             $table->timestamps();
         });
     }

@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'meta_name' => 'app_logo',
-                'meta_value' => 'https://findvectorlogo.com/wp-content/uploads/2019/03/flipkart-vector-logo.png'
+                'meta_value' => 'https://i0.wp.com/zeevector.com/wp-content/uploads/Flipkart-Logo-Vector.png?fit=737%2C195&ssl=1'
             ]
 
         ]);
