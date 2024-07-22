@@ -19,6 +19,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    @if(Session::has('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{ Session::get('success') }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Product List</h3>
@@ -71,13 +77,13 @@
                                             <form method="POST" action="/admin/product/{{$product->product_id}}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-outline-danger rounded-circle btn-sm" onclick="return confirm('Do you really want to delete?')">
+                                                <button class="btn btn-outline-danger rounded-circle btn-sm"  onclick="return confirm('Do you really want to delete this product?')">
                                                     <i class="fa-solid fa-trash"></i>
                                                 </button>
                                             </form>
                                         </td>
                                     </tr>
-                                   @endforeach
+                                   @endforeach 
                                 </tbody>
                             </table>
                         </div>
