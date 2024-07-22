@@ -28,7 +28,7 @@
                             <table id="example3" class="table table-bordered">
                                 <thead>
                                     <tr >
-                                        <th>#Id</th>
+                                        <th>ID</th>
                                         <th>Product Name</th>
                                         <th>Product Description</th>
                                         <th>Brand</th>
@@ -40,7 +40,7 @@
                                 <tbody>
                                    @foreach ($products as $product)
                                    <tr class="align-items-center">
-                                        <td  style="text-align: center; vertical-align: middle;">{{ $product->id }}</td>
+                                         <td style="text-align: center; vertical-align: middle;">{{ $product->product_id }}</td>
                                         <td  style="text-align: center; vertical-align: middle;">{{$product->product_name}}</td>
                                         <td  style="text-align: center; vertical-align: middle;">{{$product->product_desc}}</td>
                                         <td>{{$product->brand_name}}</td>
@@ -62,15 +62,19 @@
                                         <td  style="text-align: center; vertical-align: middle;">{{$product->mrp}}</td>
                                         <td  style="text-align: center; vertical-align: middle;">{{$product->sell_price}}</td> -->
                                         <td>
-                                            <a href="#" class="btn btn-outline-primary rounded-circle">
-                                                <i class="fa-regular fa-eye"></i>
+                                            <a href="/admin/product/{{$product->product_id}}" class="btn btn-outline-info rounded-circle btn-sm">
+                                                <i class="fa-regular fa-eye"></i>   
                                             </a>
-                                            <a href="#" class="btn btn-outline-primary rounded-circle">
-                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            <a href="/admin/product/{{$product->product_id}}/edit" class="btn btn-outline-info rounded-circle btn-sm">
+                                                <i class="fa-regular fa-pen-to-square"></i>   
                                             </a>
-                                            <a href="#" class="btn btn-outline-danger rounded-circle delete-button" >
-                                                <i class="fa-solid fa-trash"></i>
-                                            </a>
+                                            <form method="POST" action="/admin/product/{{$product->product_id}}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-outline-danger rounded-circle btn-sm" onclick="return confirm('Do you really want to delete?')">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                    @endforeach

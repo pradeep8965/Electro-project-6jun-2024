@@ -28,7 +28,7 @@ class ProductController extends Controller
         ->join('categories','products.category_id','=','categories.category_id')
         ->select('products.id as product_id', 'products.*', 'brands.*', 'units.*', 'categories.*')
         ->get();
-        
+
         return view('admin.product.index', compact('products'));
     }
 
@@ -118,6 +118,11 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
+
+        $product->load('brand', 'unit', 'category');
+        /* dd($product->product_name); */
+        //show.blade.php
+        return view('admin.product.show', compact('product'));
     }
 
     /**
