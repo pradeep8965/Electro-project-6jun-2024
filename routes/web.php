@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\SystemInfoController;
@@ -14,6 +15,8 @@ use App\Http\Middleware\AdminAuth;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/', [HomeController::class,'home'])->name('homeroute');
 
 Route::post('/login',[AuthController::class,'login'])->name('login');
 
