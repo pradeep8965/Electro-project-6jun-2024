@@ -16,7 +16,7 @@
                                         THE NEW <span class="d-block font-size-55">STANDARD</span>
                                     </h1>
                                     <h6 class="font-size-15 font-weight-bold mb-3" data-scs-animation-in="fadeInUp"
-                                        data-scs-animation-delay="200">UNDER FAVORABLE SMARTWATCHES
+                                        data-scs-animation-delay="200">APPLE WATCH SERIES 9
                                     </h6>
                                     <div class="mb-4" data-scs-animation-in="fadeInUp" data-scs-animation-delay="300">
                                         <span class="font-size-13">FROM</span>

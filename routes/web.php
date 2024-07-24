@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductFilterController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
@@ -19,6 +20,48 @@ Route::get('/', function () {
 Route::get('/', [HomeController::class,'home'])->name('homeroute');
 
 Route::post('/login',[AuthController::class,'login'])->name('login');
+
+/*   Frontend Routes     */
+Route::prefix('customer')->group(function () { // /admin/login
+    Route::post('/register', [CustomerAuthController::class,'register'])->name('customerRegister');
+    Route::post('/login', [CustomerAuthController::class,'login'])->name('customerLogin');
+});
+
+Route::prefix('/shop')->group(function () {
+    Route::get('/shop-grid',[ProductFilterController::class,'filter'])->name('shop-grid');;
+    Route::get('/shop',function(){
+        return view('shop/shop'); //shop.blade.php
+    });
+    Route::get('/wishlist',function(){
+        return view('shop/wishlist'); //shop.blade.php
+    });
+
+    Route::get('/single-product-fullwidth',function(){
+        return view('shop/single-product-fullwidth'); //shop.blade.php
+    });
+
+
+    Route::get('/cart',function(){
+        return view('shop/cart');
+    });
+    
+    Route::get('/my-account',function(){
+        return view('shop/my-account'); //my-account.blade.php
+    });
+    Route::get('/my-account',function(){
+        return view('shop/my-account'); //my-account.blade.php
+    });
+    Route::get('/track-your-order',function(){
+        return view('shop/track-your-order'); //my-account.blade.php
+    });
+    Route::get('/compare',function(){
+        return view('shop/compare'); //compare.blade.php
+    });
+    
+    Route::get('/checkout',function(){
+        return view('shop/checkout'); //checkout.blade.php
+    });
+});
 
 /* Admin/Backend Routes*/
 
@@ -84,10 +127,4 @@ Route::prefix('admin')->middleware(AdminAuth::class)->group(function () { // /ad
             return view('admin.ribbons');
             // ribbons.blade.php
         });
-});
-
-/*   Frontend Routes     */
-Route::prefix('customer')->group(function () { // /admin/login
-    Route::post('/register', [CustomerAuthController::class,'register'])->name('customerRegister');
-    Route::post('/login', [CustomerAuthController::class,'login'])->name('customerLogin');
 });
