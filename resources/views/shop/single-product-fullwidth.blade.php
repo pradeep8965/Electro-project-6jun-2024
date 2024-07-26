@@ -32,20 +32,21 @@
                         data-arrow-right-classes="fas fa-arrow-right u-slick__arrow-classic-inner u-slick__arrow-classic-inner--right mr-lg-2 mr-xl-4"
                         data-nav-for="#sliderSyncingThumb">
                         <div class="js-slide">
-                            <img class="img-fluid" src="../../assets/img/720X660/img1.jpg" alt="Image Description">
+                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
                         </div>
                         <div class="js-slide">
-                            <img class="img-fluid" src="../../assets/img/720X660/img2.jpg" alt="Image Description">
+                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
                         </div>
                         <div class="js-slide">
-                            <img class="img-fluid" src="../../assets/img/720X660/img3.jpg" alt="Image Description">
+                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
                         </div>
                         <div class="js-slide">
-                            <img class="img-fluid" src="../../assets/img/720X660/img4.jpg" alt="Image Description">
+                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
                         </div>
                         <div class="js-slide">
-                            <img class="img-fluid" src="../../assets/img/720X660/img5.jpg" alt="Image Description">
+                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
                         </div>
+                       
                     </div>
 
                     <div id="sliderSyncingThumb" class="js-slick-carousel u-slick u-slick--slider-syncing u-slick--slider-syncing-size u-slick--gutters-1 u-slick--transform-off"
@@ -54,19 +55,19 @@
                         data-is-thumbs="true"
                         data-nav-for="#sliderSyncingNav">
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img1.jpg" alt="Image Description">
+                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
                         </div>
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img2.jpg" alt="Image Description">
+                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
                         </div>
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img3.jpg" alt="Image Description">
+                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
                         </div>
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img4.jpg" alt="Image Description">
+                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
                         </div>
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="../../assets/img/720X660/img5.jpg" alt="Image Description">
+                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
                         </div>
                     </div>
                 </div>
@@ -74,7 +75,7 @@
                     <div class="mb-2">
                         <div class="border-bottom mb-3 pb-md-1 pb-3">
                             <a href="#" class="font-size-12 text-gray-5 mb-2 d-inline-block">Headphones</a>
-                            <h2 class="font-size-25 text-lh-1dot2">Ultra Wireless S50 Headphones S50 with Bluetooth</h2>
+                            <h2 class="font-size-30 text-lh-1dot2 "  style="font-weight: bold;">{{$product->product_name}}</h2>
                             <div class="mb-2">
                                 <a class="d-inline-flex align-items-center small font-size-15 text-lh-1" href="#">
                                     <div class="text-warning mr-2">
@@ -84,12 +85,12 @@
                                         <small class="fas fa-star"></small>
                                         <small class="far fa-star text-muted"></small>
                                     </div>
-                                    <span class="text-secondary font-size-13">(3 customer reviews)</span>
+                                    <span class="text-secondary font-size-13">(100 customer reviews)</span>
                                 </a>
                             </div>
                             <div class="d-md-flex align-items-center">
-                                <a href="#" class="max-width-150 ml-n2 mb-2 mb-md-0 d-block"><img class="img-fluid" src="../../assets/img/200X60/img1.png" alt="Image Description"></a>
-                                <div class="ml-md-3 text-gray-9 font-size-14">Availability: <span class="text-green font-weight-bold">26 in stock</span></div>
+                                <a href="#" class="max-width-150 ml-n2 mb-2 mb-md-0 d-block"></a>
+                                <div class="ml-md-3 text-gray-9 font-size-14">Availability: <span class="text-green font-weight-bold">{{$product->qty_available}} in stock</span></div>
                             </div>
                         </div>
                         <div class="flex-horizontal-center flex-wrap mb-4">
@@ -98,18 +99,16 @@
                         </div>
                         <div class="mb-2">
                             <ul class="font-size-14 pl-3 ml-1 text-gray-110">
-                                <li>4.5 inch HD Touch Screen (1280 x 720)</li>
-                                <li>Android 4.4 KitKat OS</li>
-                                <li>1.4 GHz Quad Core™ Processor</li>
-                                <li>20 MP Electro and 28 megapixel CMOS rear camera</li>
+                                <li>Bluetooth 5.0 wireless technology</li>
+                                <li> Lightning Charging Case</li>
+                                <li> Lightning to USB-A Cable</li>
+                                <li>Up to 5 hours of listening time with a single charge2</li>
                             </ul>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                        <p><strong>SKU</strong>: FW511948218</p>
                         <div class="mb-4">
                             <div class="d-flex align-items-baseline">
-                                <ins class="font-size-36 text-decoration-none">$1,999.00</ins>
-                                <del class="font-size-20 ml-2 text-gray-6">$2,299.00</del>
+                                <ins class="font-size-36 text-decoration-none">${{$product->sell_price}}</ins>
+                                <del class="font-size-20 ml-2 text-gray-6">${{$product->mrp}}</del>
                             </div>
                         </div>
                         <div class="border-top border-bottom py-3 mb-4">
@@ -118,7 +117,7 @@
                                 <!-- Select -->
                                 <select class="js-select selectpicker dropdown-select ml-3"
                                     data-style="btn-sm bg-white font-weight-normal py-2 border">
-                                    <option value="one" selected>White with Gold</option>
+                                    <option value="one" selected>Pearl White </option>
                                     <option value="two">Red</option>
                                     <option value="three">Green</option>
                                     <option value="four">Blue</option>
@@ -188,7 +187,7 @@
                                                     <div class="mb-2 d-none d-md-block"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                                     <h5 class="mb-1 product-item__title d-none d-md-block"><a href="#" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img1.jpg" alt="Image Description"></a>
+                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="/assets/img/212X200/img1.jpg" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1 d-none d-md-block">
                                                         <div class="prodcut-price">
@@ -206,7 +205,7 @@
                                                     <div class="mb-2 d-none d-md-block"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                                     <h5 class="mb-1 product-item__title d-none d-md-block"><a href="#" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="Image Description"></a>
+                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="/assets/img/212X200/img2.jpg" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1 d-none d-md-block">
                                                         <div class="prodcut-price d-flex align-items-center position-relative">
@@ -225,7 +224,7 @@
                                                     <div class="mb-2 d-none d-md-block"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                                     <h5 class="mb-1 product-item__title d-none d-md-block"><a href="#" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                                     <div class="mb-2">
-                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img3.jpg" alt="Image Description"></a>
+                                                        <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="/assets/img/212X200/img3.jpg" alt="Image Description"></a>
                                                     </div>
                                                     <div class="flex-center-between mb-1 d-none d-md-block">
                                                         <div class="prodcut-price">
@@ -282,10 +281,10 @@
                                 </div>
                             </div>
                             <div class="col-md-6 text-right">
-                                <img class="img-fluid mr-n4 mr-lg-n10" src="../../assets/img/580X580/img1.jpg" alt="Image Description">
+                                <img class="img-fluid mr-n4 mr-lg-n10" src="/assets/img/580X580/img1.jpg" alt="Image Description">
                             </div>
                             <div class="col-md-6 text-left">
-                                <img class="img-fluid ml-n4 ml-lg-n10" src="../../assets/img/580X580/img2.jpg" alt="Image Description">
+                                <img class="img-fluid ml-n4 ml-lg-n10" src="/assets/img/580X580/img2.jpg" alt="Image Description">
                             </div>
                             <div class="col-md-6 align-self-center">
                                 <div class="pt-lg-8 pt-xl-10 text-right">
@@ -685,7 +684,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img1.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="/assets/img/212X200/img1.jpg" alt="Image Description"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price">
@@ -712,7 +711,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="/assets/img/212X200/img2.jpg" alt="Image Description"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price d-flex align-items-center position-relative">
@@ -740,7 +739,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img3.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="/assets/img/212X200/img3.jpg" alt="Image Description"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price">
@@ -767,7 +766,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Smartphone 6S 32GB LTE</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img4.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="/assets/img/212X200/img4.jpg" alt="Image Description"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price">
@@ -794,7 +793,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Widescreen NX Mini F1 SMART NX</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img5.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="/assets/img/212X200/img5.jpg" alt="Image Description"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price">
@@ -821,7 +820,7 @@
                                 <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
                                 <h5 class="mb-1 product-item__title"><a href="../shop/single-product-fullwidth.html" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
                                 <div class="mb-2">
-                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="Image Description"></a>
+                                    <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="/assets/img/212X200/img2.jpg" alt="Image Description"></a>
                                 </div>
                                 <div class="flex-center-between mb-1">
                                     <div class="prodcut-price d-flex align-items-center position-relative">
@@ -872,32 +871,32 @@
                     }]'>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img1.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img1.png" alt="Image Description">
                         </a>
                     </div>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img2.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img2.png" alt="Image Description">
                         </a>
                     </div>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img3.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img3.png" alt="Image Description">
                         </a>
                     </div>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img4.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img4.png" alt="Image Description">
                         </a>
                     </div>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img5.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img5.png" alt="Image Description">
                         </a>
                     </div>
                     <div class="js-slide">
                         <a href="#" class="link-hover__brand">
-                            <img class="img-fluid m-auto max-height-50" src="../../assets/img/200X60/img6.png" alt="Image Description">
+                            <img class="img-fluid m-auto max-height-50" src="/assets/img/200X60/img6.png" alt="Image Description">
                         </a>
                     </div>
                 </div>
