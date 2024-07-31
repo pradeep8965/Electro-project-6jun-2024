@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\SystemInfo;
 use Illuminate\Database\Seeder;
-
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,15 +12,36 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory()->create([
+            'name' => 'Pradeep',
+            'surname' => 'Prajapati',
+            'email' => 'admin1@gmail.com',
+            'password' => bcrypt('admin1@gmail.com'), // Hash the password
+            'role' => 'admin',
+        ]);
 
         User::factory()->create([
-            'name' => 'pradeep',
-            'surname' => 'prajapati',
-            'email' => 'admin1@gmail.com',
-            'password' =>bcrypt('admin1@gmail.com'), // Hash the password
-            'role' => 'admin',
+            'name' => 'Anil',
+            'surname' => 'Sharma',
+            'email' => 'customer1@gmail.com',
+            'password' => bcrypt('customer1@gmail.com'), // Hash the password
+            'role' => 'customer',
+        ]);
 
+        User::factory()->create([
+            'name' => 'Abhishek',
+            'surname' => 'Bairagi',
+            'email' => 'customer2@gmail.com',
+            'password' => bcrypt('customer2@gmail.com'), // Hash the password
+            'role' => 'customer',
+        ]);
+
+        User::factory()->create([
+            'name' => 'Rajveer',
+            'surname' => 'Singh',
+            'email' => 'customer3@gmail.com',
+            'password' => bcrypt('customer3@gmail.com'), // Hash the password
+            'role' => 'customer',
         ]);
         SystemInfo::insert([
             [
@@ -34,9 +54,13 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'meta_name' => 'app_logo',
-                'meta_value' => 'https://i0.wp.com/zeevector.com/wp-content/uploads/Flipkart-Logo-Vector.png?fit=737%2C195&ssl=1'
+                'meta_value' => 'https://findvectorlogo.com/wp-content/uploads/2019/03/flipkart-vector-logo.png'
             ]
-
+            
         ]);
     }
 }
+
+
+
+

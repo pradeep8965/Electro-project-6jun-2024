@@ -105,6 +105,9 @@
                                 <li>Up to 5 hours of listening time with a single charge2</li>
                             </ul>
                         </div>
+                        <p><strong>SKU</strong>: {{$product->sku}}
+                            <img width="100" src="https://t3.ftcdn.net/jpg/04/55/48/06/360_F_455480661_B1ndlageM3kplzg1NRPFUgYj2iWXvDQS.jpg"/>
+                        </p>
                         <div class="mb-4">
                             <div class="d-flex align-items-baseline">
                                 <ins class="font-size-36 text-decoration-none">${{$product->sell_price}}</ins>

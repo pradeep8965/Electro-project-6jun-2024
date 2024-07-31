@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->unique()->nullable(); // Add a slug field with a unique constraint
+            $table->string('sku')->unique()->nullable(); // Add a slug field with a unique constraint
             $table->string('product_name');
             $table->text('product_desc');
             $table->string('brand_id');
