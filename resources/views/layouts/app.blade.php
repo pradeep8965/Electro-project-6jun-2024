@@ -29,11 +29,18 @@
         <link rel="stylesheet" href="/assets/vendor/fancybox/jquery.fancybox.css">
         <link rel="stylesheet" href="/assets/vendor/slick-carousel/slick/slick.css">
         <link rel="stylesheet" href="/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         <!-- CSS Electro Template -->
         <link rel="stylesheet" href="/assets/css/theme.css">
         <style>
-            /* CSS Code */
+            /* CSS Code */ 
+        .container {
+            display: flex;
+            align-items: center; /* Align items vertically centered */
+        }
+        .margin-left {
+            margin-left: 10px; /* Adjust the margin as needed */
+        }
         </style>
     </head>
     <body>

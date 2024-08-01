@@ -15,16 +15,17 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique()->nullable(); // Add a slug field with a unique constraint
             $table->string('sku')->unique()->nullable(); // Add a slug field with a unique constraint
-            $table->string('product_name');
-            $table->text('product_desc');
-            $table->string('brand_id');
-            $table->string('unit_id');
-            $table->string('category_id');
-            $table->string('mrp');
-            $table->string('sell_price');
-            $table->string('qty_available');
-            $table->string('prod_thumbnail_img');
-            $table->string('prod_main_img');
+            $table->string('product_name')->nullable();;
+            $table->text('product_desc')->nullable();;
+            $table->string('brand_id')->nullable();;
+            $table->string('unit_id')->nullable();;
+            $table->string('category_id')->nullable();;
+            $table->string('seller_id')->nullable();;
+            $table->string('mrp')->nullable();;
+            $table->string('sell_price')->nullable();;
+            $table->string('qty_available')->nullable();;
+            $table->string('prod_thumbnail_img')->nullable();;
+            $table->string('prod_main_img')->nullable();;
             $table->timestamps();
         });
     }

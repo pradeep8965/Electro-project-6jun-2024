@@ -31,21 +31,11 @@
                         data-arrow-left-classes="fas fa-arrow-left u-slick__arrow-classic-inner u-slick__arrow-classic-inner--left ml-lg-2 ml-xl-4"
                         data-arrow-right-classes="fas fa-arrow-right u-slick__arrow-classic-inner u-slick__arrow-classic-inner--right mr-lg-2 mr-xl-4"
                         data-nav-for="#sliderSyncingThumb">
+                        @foreach($product_gallery_image_controllers as $product_gallery_image_controller)
                         <div class="js-slide">
-                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
+                            <img class="img-fluid "src="{{$product_gallery_image_controller->image_url}}" >
                         </div>
-                        <div class="js-slide">
-                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
-                        </div>
-                        <div class="js-slide">
-                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
-                        </div>
-                        <div class="js-slide">
-                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
-                        </div>
-                        <div class="js-slide">
-                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
-                        </div>
+                        @endforeach
                        
                     </div>
 
@@ -54,42 +44,36 @@
                         data-slides-show="5"
                         data-is-thumbs="true"
                         data-nav-for="#sliderSyncingNav">
+                        @foreach($product_gallery_image_controllers as $product_gallery_image_controller)
                         <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
+                            <img class="img-fluid" width="100" src="{{$product_gallery_image_controller->image_url}}" alt="Image Description">
                         </div>
-                        <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
-                        </div>
-                        <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
-                        </div>
-                        <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
-                        </div>
-                        <div class="js-slide" style="cursor: pointer;">
-                            <img class="img-fluid" src="{{$product->prod_main_img}}" >
-                        </div>
+                        @endforeach()
                     </div>
                 </div>
                 <div class="col-md-7 mb-md-6 mb-lg-0">
                     <div class="mb-2">
                         <div class="border-bottom mb-3 pb-md-1 pb-3">
-                            <a href="#" class="font-size-12 text-gray-5 mb-2 d-inline-block">Headphones</a>
-                            <h2 class="font-size-30 text-lh-1dot2 "  style="font-weight: bold;">{{$product->product_name}}</h2>
+                            <a href="#" class="font-size-12 text-gray-5 mb-2 d-inline-block">{{$product->category_name}}</a>
+                            <h2 class="font-size-30 text-lh-1dot2 text-dark-gray" style="font-weight: bold;">{{$product->product_name}}</h2>
                             <div class="mb-2">
                                 <a class="d-inline-flex align-items-center small font-size-15 text-lh-1" href="#">
                                     <div class="text-warning mr-2">
-                                        <small class="fas fa-star"></small>
-                                        <small class="fas fa-star"></small>
-                                        <small class="fas fa-star"></small>
-                                        <small class="fas fa-star"></small>
-                                        <small class="far fa-star text-muted"></small>
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            @if ($i <= $averageRating)
+                                                <small class="fas fa-star"></small>
+                                            @else
+                                                <small class="far fa-star text-muted"></small>
+                                            @endif
+                                        @endfor
                                     </div>
-                                    <span class="text-secondary font-size-13">(100 customer reviews)</span>
+                                    <span class="text-secondary font-size-13">({{$customerReviewCount}} customer reviews)</span>
                                 </a>
                             </div>
                             <div class="d-md-flex align-items-center">
-                                <a href="#" class="max-width-150 ml-n2 mb-2 mb-md-0 d-block"></a>
+                                <a class="max-width-150"> <img width="60" class="img-fluid" src="{{$product->picture}}"  >
+                                    <strong>Seller:</strong>{{$product->seller_name}}
+                                </a>
                                 <div class="ml-md-3 text-gray-9 font-size-14">Availability: <span class="text-green font-weight-bold">{{$product->qty_available}} in stock</span></div>
                             </div>
                         </div>
@@ -110,8 +94,8 @@
                         </p>
                         <div class="mb-4">
                             <div class="d-flex align-items-baseline">
-                                <ins class="font-size-36 text-decoration-none">${{$product->sell_price}}</ins>
-                                <del class="font-size-20 ml-2 text-gray-6">${{$product->mrp}}</del>
+                                <ins class="font-size-36 text-decoration-none"  style="color: green;">${{$product->sell_price}}</ins>
+                                <del class="font-size-20 ml-2"  style="color: red;">${{$product->mrp}}</del>
                             </div>
                         </div>
                         <div class="border-top border-bottom py-3 mb-4">

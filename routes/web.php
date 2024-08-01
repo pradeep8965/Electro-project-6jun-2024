@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\SystemInfoController;
+use App\Http\Controllers\ChatController;
 use App\Http\Middleware\AdminAuth;
 
 Route::get('/', function () {
@@ -21,6 +22,10 @@ Route::get('/', [HomeController::class,'home'])->name('homeroute');
 
 // Route for product slugs
 Route::get('/{slug}', [HomeController::class, 'show'])->name('home.show');
+
+Route::get('/chat/chat', [ChatController::class, 'chat']);
+Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+Route::post('/chat', [ChatController::class, 'store']);
 
 Route::post('/login',[AuthController::class,'login'])->name('login');
 

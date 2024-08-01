@@ -31,6 +31,13 @@
         <!-- Favicon -->
         <!-- <link rel="icon" href="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/logo_lite-cbb357.png" type="image/png"> -->
         <link rel="shortcut icon" href="{{$appData['app_shortcut_icon_url']}}" />
+        <style>
+            .custom-image-width {
+            width: 100%; /* Full width by default */
+            max-width: 150px; /* Maximum width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        </style>
     </head>
 
     <body>
