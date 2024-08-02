@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chat;
-use App\Models\Message;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
@@ -13,8 +12,7 @@ class ChatController extends Controller
      */
     public function index()
     {
-        $messages = Message::all();
-        return view('chat.index', compact('messages'));
+        //
     }
 
     /**
@@ -31,18 +29,6 @@ class ChatController extends Controller
     public function store(Request $request)
     {
         //
-        {
-            $request->validate([
-                'content' => 'required|string|max:255',
-            ]);
-        
-            Message::create([
-                'content' => $request->input('content'),
-            ]);
-        
-            return redirect()->route('chat.index');
-        }
-
     }
 
     /**
@@ -76,7 +62,8 @@ class ChatController extends Controller
     {
         //
     }
+
     public function chat(){
-        return view('chat');
+        return view('chat'); //chat.blade.php
     }
 }

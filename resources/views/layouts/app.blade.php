@@ -41,7 +41,64 @@
         .margin-left {
             margin-left: 10px; /* Adjust the margin as needed */
         }
-        </style>
+        
+        .chat-bubble {
+            max-width: 60%;
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin: 10px 0;
+            position: relative;
+            font-size: 2em;
+            word-wrap: break-word;
+        }
+
+        .chat-bubble::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+        }
+
+        .chat-bubble.left {
+            background-color: #DDF8C8;
+            color: #000;
+            border-top-left-radius: 0;
+            float: left;
+            clear: both;
+        }
+
+        .chat-bubble.left::after {
+            left: 0;
+            border-right-color: #DDF8C8;
+            border-left: 0;
+            border-bottom: 0;
+            margin-left: -15px;
+        }
+
+        .chat-bubble.right {
+            background-color: #E2C6F8;
+            color: #000;
+            border-top-right-radius: 0;
+            float: right;
+            clear: both;
+        }
+
+        .chat-bubble.right::after {
+            right: 0;
+            border-left-color: #E2C6F8;
+            border-right: 0;
+            border-bottom: 0;
+            margin-right: -15px;
+        }
+        .chatCard {
+            background-image: url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
     </head>
     <body>
 
@@ -262,6 +319,29 @@
             // const classObject = new ClassName()/
             // xhro = xml http request object
         
+        </script>
+         <script>
+            //ChatForm Coading
+            console.log(document.querySelector('form#chatForm'))
+            document
+                .querySelector('form#chatForm')
+                .addEventListener('submit',function(e){
+                    e.preventDefault();
+                    console.log('Hi');
+                    console.log(document.querySelector('input.chatInput').value);
+                    var x = document.querySelector('input.chatInput').value;
+                    document.querySelector('.chatCard .card-body').innerHTML += `<span class="clearfix mb-1 mt-1"> 
+                                                                                    <span class="badge text-white float-right a_chat bg-warning">${x}</span>
+                                                                                </span>`;
+                    
+                    document.querySelector('input.chatInput').value='';
+                });
+            document
+                .querySelector('input.chatInput')
+                .addEventListener('keydown',function(e){
+                    //console.log('e > ',e)
+                    //console.log('Hello',e.target.value);
+                });
         </script>
     </body>
 </html>
