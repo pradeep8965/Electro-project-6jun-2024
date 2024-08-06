@@ -1,6 +1,7 @@
+
 @extends('layouts.app')
+
 @section('main')
-    <!-- ========== MAIN CONTENT ========== -->
     <main id="content" role="main">
         <!-- Slider Section -->
         <div class="mb-5">
@@ -16,7 +17,7 @@
                                         THE NEW <span class="d-block font-size-55">STANDARD</span>
                                     </h1>
                                     <h6 class="font-size-15 font-weight-bold mb-3" data-scs-animation-in="fadeInUp"
-                                        data-scs-animation-delay="200">APPLE WATCH SERIES 9
+                                        data-scs-animation-delay="200">UNDER FAVORABLE SMARTWATCHES
                                     </h6>
                                     <div class="mb-4" data-scs-animation-in="fadeInUp" data-scs-animation-delay="300">
                                         <span class="font-size-13">FROM</span>
@@ -9372,30 +9373,30 @@
                         data-arrows-classes="position-absolute top-0 font-size-17 u-slick__arrow-normal top-10"
                         data-arrow-left-classes="fa fa-angle-left right-1"
                         data-arrow-right-classes="fa fa-angle-right right-0" data-responsive='[{
-                              "breakpoint": 1400,
-                              "settings": {
+                            "breakpoint": 1400,
+                            "settings": {
                                 "slidesToShow": 6
-                              }
+                            }
                             }, {
                                 "breakpoint": 1200,
                                 "settings": {
-                                  "slidesToShow": 4
+                                "slidesToShow": 4
                                 }
                             }, {
-                              "breakpoint": 992,
-                              "settings": {
+                            "breakpoint": 992,
+                            "settings": {
                                 "slidesToShow": 3
-                              }
+                            }
                             }, {
-                              "breakpoint": 768,
-                              "settings": {
+                            "breakpoint": 768,
+                            "settings": {
                                 "slidesToShow": 2
-                              }
+                            }
                             }, {
-                              "breakpoint": 554,
-                              "settings": {
+                            "breakpoint": 554,
+                            "settings": {
                                 "slidesToShow": 2
-                              }
+                            }
                             }]'>
                         <div class="js-slide products-group">
                             <div class="product-item">
@@ -9853,6 +9854,4 @@
             <!-- End Brand Carousel -->
         </div>
     </main>
-    <!-- ========== END MAIN CONTENT ========== -->
 @endsection
-   

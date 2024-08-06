@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,79 +27,86 @@
         <link rel="stylesheet" href="/assets/vendor/animate.css/animate.min.css">
         <link rel="stylesheet" href="/assets/vendor/hs-megamenu/src/hs.megamenu.css">
         <link rel="stylesheet" href="/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+
         <link rel="stylesheet" href="/assets/vendor/fancybox/jquery.fancybox.css">
+        <link rel="stylesheet" href="/assets/css/zoom/jquery.fancybox-thumbs.css" />
+        <link rel="stylesheet" href="/assets/css/zoom/zoom.css" />
+
         <link rel="stylesheet" href="/assets/vendor/slick-carousel/slick/slick.css">
         <link rel="stylesheet" href="/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
         <!-- CSS Electro Template -->
         <link rel="stylesheet" href="/assets/css/theme.css">
         <style>
-            /* CSS Code */ 
-        .container {
-            display: flex;
-            align-items: center; /* Align items vertically centered */
-        }
-        .margin-left {
-            margin-left: 10px; /* Adjust the margin as needed */
-        }
-        
-        .chat-bubble {
-            max-width: 60%;
-            padding: 10px 15px;
-            border-radius: 20px;
-            margin: 10px 0;
-            position: relative;
-            font-size: 2em;
-            word-wrap: break-word;
-        }
+            /* CSS Code */
+            .a_tbdr{
+                border:1px dashed red;
+            }
+            .a_chat{
+                font-size:1.5em;
+            }
+            
+            .margin-left {
+                margin-left: 10px; /* Adjust the margin as needed */
+            }
+            
+            .chat-bubble {
+                max-width: 60%;
+                padding: 10px 15px;
+                border-radius: 20px;
+                margin: 10px 0;
+                position: relative;
+                font-size: 2em;
+                word-wrap: break-word;
+            }
 
-        .chat-bubble::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            width: 0;
-            height: 0;
-            border: 15px solid transparent;
-        }
+            .chat-bubble::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                width: 0;
+                height: 0;
+                border: 15px solid transparent;
+            }
 
-        .chat-bubble.left {
-            background-color: #DDF8C8;
-            color: #000;
-            border-top-left-radius: 0;
-            float: left;
-            clear: both;
-        }
+            .chat-bubble.left {
+                background-color: #DDF8C8;
+                color: #000;
+                border-top-left-radius: 0;
+                float: left;
+                clear: both;
+            }
 
-        .chat-bubble.left::after {
-            left: 0;
-            border-right-color: #DDF8C8;
-            border-left: 0;
-            border-bottom: 0;
-            margin-left: -15px;
-        }
+            .chat-bubble.left::after {
+                left: 0;
+                border-right-color: #DDF8C8;
+                border-left: 0;
+                border-bottom: 0;
+                margin-left: -15px;
+            }
 
-        .chat-bubble.right {
-            background-color: #E2C6F8;
-            color: #000;
-            border-top-right-radius: 0;
-            float: right;
-            clear: both;
-        }
+            .chat-bubble.right {
+                background-color: #E2C6F8;
+                color: #000;
+                border-top-right-radius: 0;
+                float: right;
+                clear: both;
+            }
 
-        .chat-bubble.right::after {
-            right: 0;
-            border-left-color: #E2C6F8;
-            border-right: 0;
-            border-bottom: 0;
-            margin-right: -15px;
-        }
-        .chatCard {
-            background-image: url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-    </style>
+            .chat-bubble.right::after {
+                right: 0;
+                border-left-color: #E2C6F8;
+                border-right: 0;
+                border-bottom: 0;
+                margin-right: -15px;
+            }
+            .chatCard {
+                background-image: url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        </style>
     </head>
     <body>
 
@@ -129,6 +137,13 @@
 
         <!-- JS Global Compulsory -->
         <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="/assets/js/zoom/jquery-ui.min.js"></script>
+        <script src="/assets/vendor/fancybox/jquery.fancybox.min.js"></script>
+        <script src="/assets/js/zoom/jquery.elevatezoom.js"></script>
+        <script src="/assets/js/zoom/panZoom.js"></script>
+        <script src="/assets/js/zoom/ui-carousel.js"></script>
+        <script src="/assets/js/zoom/zoom.js"></script>
+
         <script src="/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
         <script src="/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
         <script src="/assets/vendor/bootstrap/bootstrap.min.js"></script>
@@ -140,7 +155,7 @@
         <script src="/assets/vendor/svg-injector/dist/svg-injector.min.js"></script>
         <script src="/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
         <script src="/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-        <script src="/assets/vendor/fancybox/jquery.fancybox.min.js"></script>
+        
         <script src="/assets/vendor/typed.js/lib/typed.min.js"></script>
         <script src="/assets/vendor/slick-carousel/slick/slick.js"></script>
         <script src="/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
@@ -318,9 +333,9 @@
             // let classObject = new ClassName()/
             // const classObject = new ClassName()/
             // xhro = xml http request object
-        
+            
         </script>
-         <script>
+        <script>
             //ChatForm Coading
             console.log(document.querySelector('form#chatForm'))
             document

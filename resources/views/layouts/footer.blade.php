@@ -1,7 +1,6 @@
-
 <footer>
     <!-- Footer-top-widget -->
-    <div class="container d-none d-lg-block mb-3">
+    <!-- <div class="container d-none d-lg-block mb-3">
         <div class="row">
             <div class="col-wd-3 col-lg-4">
                 <div class="widget-column">
@@ -193,7 +192,7 @@
                         class="img-fluid" src="/assets/img/330X360/img1.jpg" alt="Image Description"></a>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End Footer-top-widget -->
     <!-- Footer-newsletter -->
     <div class="bg-primary py-3">
@@ -239,7 +238,7 @@
                 <div class="col-lg-5">
                     <div class="mb-6">
                         <a href="#" class="d-inline-block">
-                          <img width="250"src="{{$appData['app_logo']}}" />
+                            <img width="250" src="{{$appData['app_logo']}}" />
                         </a>
                     </div>
                     <div class="mb-4">
@@ -249,7 +248,7 @@
                             </div>
                             <div class="col pl-3">
                                 <div class="font-size-13 font-weight-light">Got questions? Call us 24/7!</div>
-                                <a href="tel:+80080018588" class="font-size-20 text-gray-90">{{$appData['customer_care_no1']}} </a><a
+                                <a href="tel:+80080018588" class="font-size-20 text-gray-90">{{$appData['customer_care_no1']}}, </a><a
                                     href="tel:+0600874548" class="font-size-20 text-gray-90">{{$appData['customer_care_no2']}}</a>
                             </div>
                         </div>
@@ -264,25 +263,25 @@
                         <ul class="list-inline mb-0 opacity-7">
                             <li class="list-inline-item mr-0">
                                 <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle"
-                                    target="_blank" href="{{$appData['social_fb_url']}}">
+                                   target="_blank" href="{{$appData['social_fb_url']}}">
                                     <span class="fab fa-facebook-f btn-icon__inner"></span>
                                 </a>
                             </li>
                             <li class="list-inline-item mr-0">
                                 <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle"
-                                    target="_blank" href="{{$appData['social_google_url']}}">
+                                   target="_blank" href="{{$appData['social_google_url']}}">
                                     <span class="fab fa-google btn-icon__inner"></span>
                                 </a>
                             </li>
                             <li class="list-inline-item mr-0">
                                 <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle"
-                                    target="_blank" href="{{$appData['social_x_url']}}">
+                                   target="_blank" href="{{$appData['social_x_url']}}">
                                     <span class="fab fa-twitter btn-icon__inner"></span>
                                 </a>
                             </li>
                             <li class="list-inline-item mr-0">
                                 <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle"
-                                    target="_blank" href="{{$appData['social_github_url']}}">
+                                   target="_blank" href="{{$appData['social_github_url']}}">
                                     <span class="fab fa-github btn-icon__inner"></span>
                                 </a>
                             </li>

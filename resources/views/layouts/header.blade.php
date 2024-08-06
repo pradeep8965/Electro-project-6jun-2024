@@ -1,4 +1,3 @@
-
 <!-- ========== HEADER ========== -->
 <header id="header" class="u-header u-header-left-aligned-nav">
     <div class="u-header__section">
@@ -593,7 +592,10 @@
 
                                     <!-- Contact Us -->
                                     <li class="nav-item u-header__nav-item">
-                                        <a class="nav-link u-header__nav-link" href="/chat/chat1">Chat With Us</a>
+                                        <a class="nav-link u-header__nav-link" href="../home/contact-v1">Contact Us</a>
+                                    </li>
+                                    <li class="nav-item u-header__nav-item">
+                                        <a class="nav-link u-header__nav-link" href="/chat/chat">Chat with Us</a>
                                     </li>
                                     <!-- End Contact Us -->
                                 </ul>
@@ -1047,7 +1049,7 @@
                     <!-- Search bar -->
                     <div class="col align-self-center">
                         <!-- Search-Form -->
-                        <form class="js-focus-state" method="GET"action="shop/shop-grid">
+                        <form class="js-focus-state" method="GET" action="/shop/shop-grid">
                             <label class="sr-only" for="searchProduct">Search</label>
                             <div class="input-group">
                                 <input type="text" class="form-control py-2 pl-5 font-size-15 border-0 height-40 rounded-left-pill" name="q" id="searchProduct" placeholder="Search for Products" aria-label="Search for Products" aria-describedby="searchProduct1" required>

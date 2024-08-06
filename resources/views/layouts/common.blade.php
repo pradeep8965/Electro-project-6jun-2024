@@ -22,22 +22,14 @@
         <link rel="stylesheet" href="/assets/vendor/hs-megamenu/src/hs.megamenu.css">
         <link rel="stylesheet" href="/assets/vendor/ion-rangeslider/css/ion.rangeSlider.css">
         <link rel="stylesheet" href="/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+        
         <link rel="stylesheet" href="/assets/vendor/fancybox/jquery.fancybox.css">
+        <link rel="stylesheet" href="/assets/css/zoom/jquery.fancybox-thumbs.css" />
+        <link rel="stylesheet" href="/assets/css/zoom/zoom.css" />
+
         <link rel="stylesheet" href="/assets/vendor/slick-carousel/slick/slick.css">
         <link rel="stylesheet" href="/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
-
-        <!-- CSS Electro Template -->
         <link rel="stylesheet" href="/assets/css/theme.css">
-        <!-- Favicon -->
-        <!-- <link rel="icon" href="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/logo_lite-cbb357.png" type="image/png"> -->
-        <link rel="shortcut icon" href="{{$appData['app_shortcut_icon_url']}}" />
-        <style>
-            .custom-image-width {
-            width: 100%; /* Full width by default */
-            max-width: 150px; /* Maximum width */
-            height: auto; /* Maintain aspect ratio */
-        }
-        </style>
     </head>
 
     <body>
@@ -695,6 +687,15 @@
 
         <!-- JS Global Compulsory -->
         <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="/assets/js/zoom/jquery-ui.min.js"></script>
+        <script src="/assets/vendor/fancybox/jquery.fancybox.min.js"></script>
+        <script src="/assets/js/zoom/jquery.elevatezoom.js"></script>
+        <script src="/assets/js/zoom/panZoom.js"></script>
+        <script src="/assets/js/zoom/ui-carousel.js"></script>
+        <script src="/assets/js/zoom/zoom.js"></script>
+           <!-- ElevateZoom -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/3.0.8/jquery.elevatezoom.min.js"></script>
+
         <script src="/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
         <script src="/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
         <script src="/assets/vendor/bootstrap/bootstrap.min.js"></script>
