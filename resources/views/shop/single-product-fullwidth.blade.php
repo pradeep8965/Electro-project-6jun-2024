@@ -782,8 +782,14 @@
     $(document).ready(function() {
         // Inner Zoom
         $('#zoom_10').elevateZoom({
-            zoomType: "inner",
-            cursor: "crosshair"
+           
+            cursor: "crosshair",
+            zoomType: "lens",
+            lensShape: "round",
+            lensSize: 2,
+            scrollZoom: true,
+            zoomLevel: 5, // Increase this value to increase the zoom level
+            responsive: true
         });
     });
 </script>   
