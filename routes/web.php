@@ -33,6 +33,7 @@ Route::post('/login',[AuthController::class,'login'])->name('login');
 Route::prefix('customer')->group(function () { // /admin/login
     Route::post('/register', [CustomerAuthController::class,'register'])->name('customerRegister');
     Route::post('/login', [CustomerAuthController::class,'login'])->name('customerLogin');
+    Route::get('/logout', [CustomerAuthController::class,'logout']);
 });
 
 Route::prefix('/shop')->group(function () {

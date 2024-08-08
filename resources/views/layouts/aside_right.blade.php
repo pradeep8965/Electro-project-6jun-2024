@@ -1,3 +1,4 @@
+
 <!-- Account Sidebar Navigation -->
 <aside id="sidebarContent" class="u-sidebar u-sidebar__lg" aria-labelledby="sidebarNavToggler">
     <div class="u-sidebar__scroller">
@@ -18,7 +19,7 @@
                 <!-- Content -->
                 <div class="js-scrollbar u-sidebar__body">
                     <div class="u-sidebar__content u-header-sidebar__content">
-                        <form class="js-validate" method="GET" action="">
+                        <form class="js-validate" method="POST" action="{{route('customerLogin')}}">
                             @csrf
                             <!-- Login -->
                             <div id="login" data-target-group="idForm">
@@ -77,7 +78,7 @@
 
                                 <div class="mb-2">
                                     <button type="submit"
-                                        class="btn btn-block btn-sm btn-primary transition-3d-hover a_loginsubmit">Login</button>
+                                        class="btn btn-block btn-sm btn-primary transition-3d-hover">Login</button>
                                 </div>
 
                                 <div class="text-center mb-4">

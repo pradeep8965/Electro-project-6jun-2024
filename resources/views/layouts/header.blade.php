@@ -47,19 +47,34 @@
                             </li>
                             <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
                                 <!-- Account Sidebar Toggle Button -->
-                                <a id="sidebarNavToggler" href="javascript:;" role="button" class="u-header-topbar__nav-link"
-                                    aria-controls="sidebarContent"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-unfold-event="click"
-                                    data-unfold-hide-on-scroll="false"
-                                    data-unfold-target="#sidebarContent"
-                                    data-unfold-type="css-animation"
-                                    data-unfold-animation-in="fadeInRight"
-                                    data-unfold-animation-out="fadeOutRight"
-                                    data-unfold-duration="500">
-                                    <i class="ec ec-user mr-1"></i> Register <span class="text-gray-50">or</span> Sign in
-                                </a>
+                                @php
+                                    if(session('firstname')){
+                                        @endphp
+                                        <strong>Welcome:     <i class="fas fa-user-circle"></i>     {{ session('firstname') }} {{ session('lastname') }}</strong>
+                                        <a href="/customer/logout" class="logout-button">
+                                            Logout  
+                                        </a>
+                                        @php
+                                    }else{
+                                        @endphp
+                                        <a id="sidebarNavToggler" href="javascript:;" role="button" class="u-header-topbar__nav-link"
+                                            aria-controls="sidebarContent"
+                                            aria-haspopup="true"
+                                            aria-expanded="false"
+                                            data-unfold-event="click"
+                                            data-unfold-hide-on-scroll="false"
+                                            data-unfold-target="#sidebarContent"
+                                            data-unfold-type="css-animation"
+                                            data-unfold-animation-in="fadeInRight"
+                                            data-unfold-animation-out="fadeOutRight"
+                                            data-unfold-duration="500">
+                                            <i class="ec ec-user mr-1"></i>  Register <span class="text-gray-50">or</span> Sign in
+                                        </a>
+
+                                        @php
+
+                                    }
+                                @endphp
                                 <!-- End Account Sidebar Toggle Button -->
                             </li>
                         </ul>
@@ -595,7 +610,7 @@
                                         <a class="nav-link u-header__nav-link" href="../home/contact-v1">Contact Us</a>
                                     </li>
                                     <li class="nav-item u-header__nav-item">
-                                        <a class="nav-link u-header__nav-link" href="/chat/chat">Chat with Us</a>
+                                        <a class="nav-link u-header__nav-link" href="/chat/chat">Chat with CustomerCare</a>
                                     </li>
                                     <!-- End Contact Us -->
                                 </ul>

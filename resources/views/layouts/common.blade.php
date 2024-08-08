@@ -30,6 +30,11 @@
         <link rel="stylesheet" href="/assets/vendor/slick-carousel/slick/slick.css">
         <link rel="stylesheet" href="/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
         <link rel="stylesheet" href="/assets/css/theme.css">
+        <style>
+            .zoomContainer {
+                z-index: 9999 !important;
+            }
+        </style>
     </head>
 
     <body>
@@ -693,8 +698,6 @@
         <script src="/assets/js/zoom/panZoom.js"></script>
         <script src="/assets/js/zoom/ui-carousel.js"></script>
         <script src="/assets/js/zoom/zoom.js"></script>
-           <!-- ElevateZoom -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/3.0.8/jquery.elevatezoom.min.js"></script>
 
         <script src="/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
         <script src="/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
