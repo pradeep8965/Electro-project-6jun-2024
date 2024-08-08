@@ -46,7 +46,7 @@
             }
             .logout-button {
                 display: inline-block;
-                padding: 10px 20px;
+                padding: 10px ;
                 font-size: 12px;
                 color: #000;
                 background-color: #FED700;

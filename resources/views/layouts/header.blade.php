@@ -57,7 +57,7 @@
                                         @php
                                     }else{
                                         @endphp
-                                        <a id="sidebarNavToggler" href="javascript:;" role="button" class="u-header-topbar__nav-link"
+                                        <a id="sidebarNavToggler" href="javascript:;" role="button" class="u-header-topbar__nav-link "
                                             aria-controls="sidebarContent"
                                             aria-haspopup="true"
                                             aria-expanded="false"
@@ -68,7 +68,7 @@
                                             data-unfold-animation-in="fadeInRight"
                                             data-unfold-animation-out="fadeOutRight"
                                             data-unfold-duration="500">
-                                            <i class="ec ec-user mr-1"></i>  Register <span class="text-gray-50">or</span> Sign in
+                                            <i class="fas fa-user-plus"></i> <span class="text-gray-50 font-weight-bold "> Sign in </span>
                                         </a>
 
                                         @php
