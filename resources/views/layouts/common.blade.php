@@ -827,7 +827,6 @@
                         $('#headerSidebarList .collapse.show').collapse('hide');
                     }
                 });
-
                 $('#headerSidebarList [data-toggle="collapse"]').on('click', function (e) {
                     e.preventDefault();
 
@@ -839,7 +838,6 @@
                         $(target).collapse('show');
                     }
                 });
-
                 // initialization of unfold component
                 $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
 
@@ -847,6 +845,5 @@
                 $.HSCore.components.HSSelectPicker.init('.js-select');
             });
         </script>
-                
     </body>
 </html>

@@ -750,5 +750,4 @@
             });
         });
     </script>   
-    
     @endsection
