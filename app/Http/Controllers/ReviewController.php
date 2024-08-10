@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -34,9 +35,15 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Review $review)
+    public function show(Request $request)
     {
-        //
+        ///
+        //dd($request->all());
+        //$review = new Review();
+        $data = $request->only('product_id','rating','reviewContent');
+        $data['customer_id']=Auth::id();
+        Review::create($data);
+        return back()->with('success','Product Review posted successfully!');
     }
 
     /**

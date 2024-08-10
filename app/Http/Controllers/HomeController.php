@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Category;
 use App\Models\Product;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Review;
 
 class HomeController extends Controller
 {
@@ -14,6 +17,7 @@ class HomeController extends Controller
     //2. Constructor
 
     //3. Methods
+    
     public function home() {
         // Fetch categories from the database
         $categories = Category::whereNotNull('rank')->orderBy('rank', 'asc')->get();
@@ -42,23 +46,65 @@ class HomeController extends Controller
         // Calculate the average rating of the product from the review table
         // Join with the review table and count the number of reviews
         $customerReviewCount = DB::table('reviews')
-                                 ->where('product_id', $product->id)
-                                 ->count();
+        ->where('product_id', $product->id)
+        ->count();
 
         $averageRating = DB::table('reviews')
-                           ->where('product_id', $product->id)
-                           ->avg('rating');
+        ->where('product_id', $product->id)
+        ->avg('rating');
 
         // Fetch product gallery images
         $product_gallery_image_controllers = Product::join('product_gallery_image_controllers', 'products.id', '=', 'product_gallery_image_controllers.product_id')
-                                                    ->get();
+        ->get();
 
+        $reviews = Review::where('product_id',$product->id)
+        ->where('users.role', '=', 'customer')
+        ->join('products','products.id','=','reviews.product_id')
+        ->join('users','users.id','=','reviews.customer_id')
+        ->select( 'reviews.reviewContent','reviews.rating','reviews.created_at','users.name','users.surname','users.role') 
+        ->get();
+        
         // Fetch related products (example: same category or similar criteria)
         $relatedProducts = Product::join('categories', 'products.category_id', '=', 'categories.category_id')
-                                  ->where('products.category_id', $product->category_id)
-                                  ->where('products.id', '!=', $product->id)
-                                  ->select('products.*', 'categories.category_name')
-                                  ->get();
+        ->where('products.category_id', $product->category_id)
+        ->where('products.id', '!=', $product->id)
+        ->select('products.*', 'categories.category_name')
+        ->get();
+        
+        $rating5 = DB::table('reviews')
+        ->where('product_id', $product->id)
+        ->where('rating', 5)
+        ->count();
+        $rating4 = DB::table('reviews')
+        ->where('product_id', $product->id)
+        ->where('rating', 4)
+        ->count();
+        $rating3 = DB::table('reviews')
+        ->where('product_id', $product->id)
+        ->where('rating', 3)
+        ->count();
+        $rating2 = DB::table('reviews')
+        ->where('product_id', $product->id)
+        ->where('rating', 2)
+        ->count();
+        $rating1 = DB::table('reviews')
+        ->where('product_id', $product->id)
+        ->where('rating', 1)
+        ->count();
+
+        $is_purchased_count = DB::table('orders')
+        ->where('product_id', $product->id)
+        ->where('customer_id', Auth::id())
+        ->count();
+
+        $is_purchased= $is_purchased_count>0?true:false;
+        
+
+        $had_given_review_previously_count = DB::table('reviews')
+        ->where('product_id', $product->id)
+        ->where('customer_id', Auth::id())
+        ->count();
+        $had_given_review_previously = ($had_given_review_previously_count>0)?true:false;
 
         // Pass the product details and related products to the view
         return view('shop/single-product-fullwidth', [
@@ -66,7 +112,15 @@ class HomeController extends Controller
                                                         'customerReviewCount' => $customerReviewCount,
                                                         'product_gallery_image_controllers' => $product_gallery_image_controllers,
                                                         'averageRating' => $averageRating,
-                                                        'products' => $relatedProducts
+                                                        'products' => $relatedProducts,
+                                                        'reviews'=>$reviews,
+                                                        'rating5'=>$rating5,
+                                                        'rating4'=>$rating4,
+                                                        'rating3'=>$rating3,
+                                                        'rating2'=>$rating2,
+                                                        'rating1'=>$rating1,
+                                                        'is_purchased'=>$is_purchased,
+                                                        'had_given_review_previously'=>$had_given_review_previously,
                                                     ]); // single-product-fullwidth.blade.php
     }
 }

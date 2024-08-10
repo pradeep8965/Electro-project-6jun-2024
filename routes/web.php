@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\SystemInfoController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Middleware\AdminAuth;
 
 Route::get('/', function () {
@@ -34,6 +35,9 @@ Route::prefix('customer')->group(function () { // /admin/login
     Route::post('/register', [CustomerAuthController::class,'register'])->name('customerRegister');
     Route::post('/login', [CustomerAuthController::class,'login'])->name('customerLogin');
     Route::get('/logout', [CustomerAuthController::class,'logout']);
+
+     // /shop/review
+     Route::resource('review', ReviewController::class);
 });
 
 Route::prefix('/shop')->group(function () {

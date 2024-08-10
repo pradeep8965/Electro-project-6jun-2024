@@ -13,15 +13,15 @@
                                 <div class="offset-xl-3 col-xl-4 col-6 mt-md-8">
                                     <h1 class="font-size-64 text-lh-57 font-weight-light"
                                         data-scs-animation-in="fadeInLeft">
-                                        THE NEW <span class="d-block font-size-55">STANDARD</span>
+                                        THE NEW <span class="d-block font-size-55">FOLDABLE</span>
                                     </h1>
                                     <h6 class="font-size-15 font-weight-bold mb-3" data-scs-animation-in="fadeInLeft"
-                                        data-scs-animation-delay="200">FOLDABLE SMARTPHONES
+                                        data-scs-animation-delay="200"> SAMSUNG z FOLD 6
                                     </h6>
                                     <div class="mb-4" data-scs-animation-in="fadeInLeft" data-scs-animation-delay="300">
                                         <span class="font-size-13">FROM</span>
                                         <div class="font-size-50 font-weight-bold text-lh-45">
-                                            <sup class="">$</sup>749<sup class="">99</sup>
+                                            <sup class="">$</sup>1949<sup class="">00</sup>
                                         </div>
                                     </div>
                                     <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt8U3TKkjVNDsVi7CQ5wpfU3OGeFHkMsHKQw&s"
