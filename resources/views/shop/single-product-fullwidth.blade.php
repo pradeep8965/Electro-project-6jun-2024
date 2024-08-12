@@ -34,6 +34,7 @@
                             @foreach($product_gallery_image_controllers as $product_gallery_image_controller)
                             <a href="#" class="js-slide gallery-viewer" style="margin-top: 0px">
                                 <img id="zoom_10" class="img-fluid "src="{{$product_gallery_image_controller->image_url}}"  alt="Image Description" data-zoom-image="{{$product_gallery_image_controller->image_url}}">
+                                
                             </a>
                             @endforeach
                         </div>
