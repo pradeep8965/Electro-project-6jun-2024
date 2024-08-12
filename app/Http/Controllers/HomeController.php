@@ -106,6 +106,21 @@ class HomeController extends Controller
         ->count();
         $had_given_review_previously = ($had_given_review_previously_count>0)?true:false;
 
+        $attributesData = DB::table('proudct_attribute_values') // Correct table name
+        ->join('attributes', 'proudct_attribute_values.attribute_id', '=', 'attributes.id')
+        ->join('attribute_values', 'proudct_attribute_values.attributeValue_id', '=', 'attribute_values.id')
+        ->where('proudct_attribute_values.product_id',  $product->id) // Correct table name
+        ->select('attributes.name as attribute_name', 'attribute_values.value as attribute_value')
+        ->get()
+        ->groupBy('attribute_name');
+
+    // Prepare the formatted array
+    $formattedAttributes = [];
+
+    foreach ($attributesData as $attributeName => $values) {
+        $formattedAttributes[$attributeName] = $values->pluck('attribute_value')->toArray();
+    }
+
         // Pass the product details and related products to the view
         return view('shop/single-product-fullwidth', [
                                                         'product' => $product,
@@ -121,6 +136,7 @@ class HomeController extends Controller
                                                         'rating1'=>$rating1,
                                                         'is_purchased'=>$is_purchased,
                                                         'had_given_review_previously'=>$had_given_review_previously,
+                                                        'attributes'=>$formattedAttributes
                                                     ]); // single-product-fullwidth.blade.php
     }
 }

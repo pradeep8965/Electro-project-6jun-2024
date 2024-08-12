@@ -85,7 +85,7 @@
                                     <li>Bluetooth 5.0 wireless technology</li>
                                     <li> Lightning Charging Case</li>
                                     <li> Lightning to USB-A Cable</li>
-                                    <li>Up to 5 hours of listening time with a single charge2</li>
+                                    <li>Up to 5 hours of listening time with a single charge</li>
                                 </ul>
                             </div>
                             <p><strong>SKU</strong>: {{$product->sku}}
@@ -97,19 +97,73 @@
                                     <del class="font-size-20 ml-2"  style="color: red;">${{$product->mrp}}</del>
                                 </div>
                             </div>
-                            <div class="border-top border-bottom py-3 mb-4">
-                                <div class="d-flex align-items-center">
-                                    <h6 class="font-size-14 mb-0">Color</h6>
-                                    <!-- Select -->
-                                    <select class="js-select selectpicker dropdown-select ml-3"
-                                        data-style="btn-sm bg-white font-weight-normal py-2 border">
-                                        <option value="one" selected>Pearl White </option>
-                                        <option value="two">Red</option>
-                                        <option value="three">Green</option>
-                                        <option value="four">Blue</option>
-                                    </select>
-                                    <!-- End Select -->
-                                </div>
+                            <div class="breadcrumbs border-top border-bottom py-3 mb-4">
+                                @php
+                                // Array to hold single value attributes
+                                $singleValueAttributes = [];
+
+                                // Array to hold multiple value attributes
+                                $multipleValueAttributes = [];
+
+                                // Array of color names and their corresponding emojis, including Bluetooth and Wi-Fi logos
+                                $iconEmojis = [
+                                    'red' => '❤️',
+                                    'blue' => '💙',
+                                    'green' => '💚',
+                                    'yellow' => '💛',
+                                    'black' => '🖤',
+                                    'white' => '🤍',
+                                    'purple' => '💜',
+                                    'orange' => '🧡',
+                                    'grayfite' => '🩶',
+                                    'bluetooth' => '🔵',
+                                    'wifi' => '📶',
+                                    // Add more colors or icons as needed
+                                ];
+
+                                foreach ($attributes as $key => $values) {
+                                    if (count($values) > 1) {
+                                        // Multiple values: Store in an array for later display
+                                        $multipleValueAttributes[$key] = $values;
+                                    } else {
+                                        // Single value: Store in an array for immediate display
+                                        $singleValueAttributes[$key] = $values[0];
+                                    }
+                                }
+
+                                // Prepare HTML for breadcrumb items
+                                $breadcrumbItems = '';
+
+                                // Display multiple value attributes as select dropdowns
+                                foreach ($multipleValueAttributes as $key => $values) {
+                                    $breadcrumbItems .= "<div class='breadcrumb-item'>";
+                                    $breadcrumbItems .= "<h6 class='font-size-14 mb-0 font-weight-bold'>{$key}</h6>"; // Added font-weight-bold class
+                                    $breadcrumbItems .= "<select class='js-select selectpicker dropdown-select ml-3' data-style='btn-sm bg-white font-weight-normal py-2 border'>";
+                                    foreach ($values as $value) {
+                                        $selected = $value === $values[0] ? ' selected' : ''; // Set the first option as selected
+                                        $lowerValue = strtolower($value);
+                                        $emoji = isset($iconEmojis[$lowerValue]) ? ' ' . $iconEmojis[$lowerValue] : ''; // Add the emoji if the color or icon is found
+                                        $breadcrumbItems .= "<option value='" . $lowerValue . "'$selected>$value$emoji</option>";
+                                    }
+                                    $breadcrumbItems .= "</select>";
+                                    $breadcrumbItems .= "</div>";
+                                }
+
+                                // Display single value attributes as a horizontal list with bullet numbers
+                                if (count($singleValueAttributes) > 0) {
+                                    $breadcrumbItems .= "<ul class='horizontal-layout' style='margin-left: -10px; padding:0px'>";
+                                    foreach ($singleValueAttributes as $key => $value) {
+                                        $lowerValue = strtolower($value);
+                                        $emoji = isset($iconEmojis[$lowerValue]) ? ' ' . $iconEmojis[$lowerValue] : ''; // Add the emoji if the color or icon is found
+                                        $breadcrumbItems .= "<li class='breadcrumb-item'>";
+                                        $breadcrumbItems .= "<h6 class='font-size-14 mb-0 font-weight-bold'>{$key}</h6>"; // Added font-weight-bold class
+                                        $breadcrumbItems .= "<span>{$value}{$emoji}</span>";
+                                        $breadcrumbItems .= "</li>";
+                                    }
+                                    $breadcrumbItems .= "</ul>";
+                                }
+                                echo $breadcrumbItems;
+                                @endphp
                             </div>
                             <div class="d-md-flex align-items-end mb-3">
                                 <div class="max-width-150 mb-4 mb-md-0">
@@ -256,29 +310,31 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="Jpills-two-example1" role="tabpanel" aria-labelledby="Jpills-two-example1-tab">
-                            <h3 class="font-size-24 mb-3">Perfectly Done</h3>
-                            <p>Praesent ornare, ex a interdum consectetur, lectus diam sodales elit, vitae egestas est enim ornare nisl. Nullam in lectus nec sem semper viverra. In lobortis egestas massa. Nam nec massa nisi. Suspendisse potenti. Quisque suscipit vulputate dui quis volutpat. Ut id elit facilisis, feugiat est in, tempus lacus. Ut ultrices dictum metus, a ultricies ex vulputate ac. Ut id cursus tellus, non tempor quam. Morbi porta diam nisi, id finibus nunc tincidunt eu.</p>
+                            <h3 class="font-size-24 mb-3">Overview</h3>
+                            <p>Apple-designed H2 chip, the force behind AirPods Pro, pushes advanced audio performance even further. From smarter noise cancellation to superior three-dimensional sound and battery life, it improves on the best features of AirPods Pro in a big way..</p>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="pt-lg-8 pt-xl-10">
-                                        <h3 class="font-size-24 mb-3">Wireless</h3>
-                                        <p class="mb-6">Fusce vitae nibh mi. Integer posuere, libero et ullamcorper facilisis, enim eros tincidunt orci, eget vestibulum sapien nisi ut leo. Cras finibus vel est ut mollis. Donec luctus condimentum ante et euismod.</p>
-                                        <h3 class="font-size-24 mb-3">Fresh Design</h3>
-                                        <p class="mb-6">Integer bibendum aliquet ipsum, in ultrices enim sodales sed. Quisque ut urna vitae lacus laoreet malesuada eu at massa. Pellentesque nibh augue, pellentesque nec dictum vel, pretium a arcu. Duis eu urna suscipit, lobortis elit quis, ullamcorper massa.</p>
-                                        <h3 class="font-size-24 mb-3">Fabolous Sound</h3>
-                                        <p class="mb-6">Cras rutrum, nibh a sodales accumsan, elit sapien ultrices sapien, eget semper lectus ex congue elit. Nullam dui elit, fermentum a varius at, iaculis non dolor. In hac habitasse platea dictumst.</p>
+                                        <h3 class="font-size-24 mb-3">Processor</h3>
+                                        <p class="mb-6">The brand new apple-designed H2 chip, the force behind AirPods Pro, pushes advanced audio performance even further. From smarter noise cancellation to superior three-dimensional sound and battery life, </p>
+                                       <h3 class="font-size-24 mb-3">Fabolous Sound</h3>
+                                        <p class="mb-6">Adaptive Audio dynamically blends Transparency mode and Active Noise Cancellation to deliver the best listening experience for you in any environment.</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6 text-right">
-                                    <img class="img-fluid mr-n4 mr-lg-n10" src="/assets/img/580X580/img1.jpg" alt="Image Description">
-                                </div>
-                                <div class="col-md-6 text-left">
-                                    <img class="img-fluid ml-n4 ml-lg-n10" src="/assets/img/580X580/img2.jpg" alt="Image Description">
-                                </div>
+                               
                                 <div class="col-md-6 align-self-center">
                                     <div class="pt-lg-8 pt-xl-10 text-right">
                                         <h3 class="font-size-24 mb-3">Inteligent Bass</h3>
-                                        <p class="mb-6">Fusce vitae nibh mi. Integer posuere, libero et ullamcorper facilisis, enim eros tincidunt orci, eget vestibulum sapien nisi ut leo. Cras finibus vel est ut mollis. Donec luctus condimentum ante et euismod.</p>
+                                        <p class="mb-6">Up to 2x more Active Noise Cancellation than the previous generation AirPods Pro, so you’ll hear dramatically less noise during your commute and when you need to focus.
+
+                                            Transparency mode lets outside sound in, so you can hear what’s going on around you.
+
+                                            Conversation Awareness lowers media volume and enhances voices of people in front of you, all while reducing background noise to make it easier for you to engage with people nearby when wearing AirPods Pro.
+
+                                            Personalised Volume automatically fine-tunes the best media experience for you in the moment.
+
+                                            Personalised Spatial Audio surrounds you in sound tuned just for you. It works with dynamic head tracking to immerse you deeper in music and movies.
+                                        </p>
                                         <h3 class="font-size-24 mb-3">Battery Life</h3>
                                         <p class="mb-6">Integer bibendum aliquet ipsum, in ultrices enim sodales sed. Quisque ut urna vitae lacus laoreet malesuada eu at massa. Pellentesque nibh augue, pellentesque nec dictum vel, pretium a arcu. Duis eu urna suscipit, lobortis elit quis, ullamcorper massa.</p>
                                     </div>
@@ -294,108 +350,27 @@
                         </div>
                         <div class="tab-pane fade" id="Jpills-three-example1" role="tabpanel" aria-labelledby="Jpills-three-example1-tab">
                             <div class="mx-md-5 pt-1">
-                                <div class="table-responsive mb-4">
-                                    <table class="table table-hover">
-                                        <tbody>
-                                            <tr>
-                                                <th class="px-4 px-xl-5 border-top-0">Weight</th>
-                                                <td class="border-top-0">7.25kg</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Dimensions</th>
-                                                <td>90 x 60 x 90 cm</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Size</th>
-                                                <td>One Size Fits all</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">color</th>
-                                                <td>Black with Red, White with Gold</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Guarantee</th>
-                                                <td>5 years</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <h3 class="font-size-18 mb-4">Technical Specifications</h3>
+                                
+                                <h1 class="font-size-18 mb-4"><strong>Technical Specifications :</strong></h1>
                                 <div class="table-responsive">
                                     <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Attribute</th>
+                                                <th>Value</th>
+                                            </tr>
+                                        </thead>
                                         <tbody>
-                                            <tr>
-                                                <th class="px-4 px-xl-5 border-top-0">Brand</th>
-                                                <td class="border-top-0">Apple</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Item Height</th>
-                                                <td>18 Millimeters</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Item Width</th>
-                                                <td>31.4 Centimeters</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Screen Size</th>
-                                                <td>13 Inches</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Item Weight</th>
-                                                <td>1.6 Kg</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Product Dimensions</th>
-                                                <td>21.9 x 31.4 x 1.8 cm</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Item model number</th>
-                                                <td>MF841HN/A</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Processor Brand</th>
-                                                <td>Intel</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Processor Type</th>
-                                                <td>Core i5</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Processor Speed</th>
-                                                <td>2.9 GHz</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">RAM Size</th>
-                                                <td>8 GB</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Hard Drive Size</th>
-                                                <td>512 GB</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Hard Disk Technology</th>
-                                                <td>Solid State Drive</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Graphics Coprocessor</th>
-                                                <td>Intel Integrated Graphics</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Graphics Card Description</th>
-                                                <td>Integrated Graphics Card</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Hardware Platform</th>
-                                                <td>Mac</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Operating System</th>
-                                                <td>Mac OS</td>
-                                            </tr>
-                                            <tr>
-                                                <th class="px-4 px-xl-5">Average Battery Life (in hours)</th>
-                                                <td>9</td>
-                                            </tr>
+                                            @foreach ($singleValueAttributes as $key => $value)
+                                                @php
+                                                $lowerValue = strtolower($value);
+                                                $emoji = isset($iconEmojis[$lowerValue]) ? ' ' . $iconEmojis[$lowerValue] : ''; // Add the emoji if the color or icon is found
+                                                @endphp
+                                                <tr>
+                                                    <td><strong>{{ $key }}</strong></td>
+                                                    <td>{{ $value }}{!! $emoji !!}</td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

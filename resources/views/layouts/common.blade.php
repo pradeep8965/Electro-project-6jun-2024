@@ -34,6 +34,54 @@
             .zoomContainer {
                 z-index: 9999 !important;
             }
+            /* Container for breadcrumbs */
+            .breadcrumbs {
+                display: flex; /* Use flexbox for horizontal layout */
+                align-items: center; /* Center items vertically */
+                gap: 1rem; /* Space between breadcrumb items */
+                flex-wrap: wrap; /* Allow wrapping if necessary */
+            }
+
+            /* Individual breadcrumb item styling */
+            .breadcrumb-item {
+                display: flex; /* Flexbox for item content */
+                align-items: center; /* Center items vertically */
+                
+            }
+            /* Vertical layout for single value items */
+            .vertical-layout {
+                display: flex;
+                flex-direction: column; /* Arrange items vertically */
+                gap: 0.5rem; /* Space between items */
+            }
+
+            /* Single value item styling */
+            .single-value-item {
+                display: flex; /* Flexbox for item content */
+                align-items: center; /* Center items vertically */
+            }
+            /* Adjust font size and spacing */
+            .font-size-14 {
+                font-size: 14px; /* Adjust font size as needed */
+            }
+
+            /* Margin-left for select and span */
+            .ml-3 {
+                margin-left: 0.75rem; /* Adjust margin as needed */
+            }
+
+            /* Optional: Style for breadcrumb links (if you use links) */
+            .breadcrumb-item a {
+                text-decoration: none; /* Remove underline from links */
+                color: inherit; /* Inherit text color from parent */
+            }
+            .font-weight-bold {
+                font-weight: bold; /* Make text bold */
+            }
+            .breadcrumb-item span {
+                display: inline-block;
+                margin-left: 0.5rem; /* Space between key and value */
+            }
         </style>
     </head>
 
@@ -710,7 +758,6 @@
         <script src="/assets/vendor/svg-injector/dist/svg-injector.min.js"></script>
         <script src="/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
         <script src="/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-        <script src="/assets/vendor/fancybox/jquery.fancybox.min.js"></script>
         <script src="/assets/vendor/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
         <script src="/assets/vendor/typed.js/lib/typed.min.js"></script>
         <script src="/assets/vendor/slick-carousel/slick/slick.js"></script>
