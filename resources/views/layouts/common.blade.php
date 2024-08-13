@@ -82,6 +82,7 @@
                 display: inline-block;
                 margin-left: 0.5rem; /* Space between key and value */
             }
+            
         </style>
     </head>
 
@@ -746,6 +747,7 @@
         <script src="/assets/js/zoom/panZoom.js"></script>
         <script src="/assets/js/zoom/ui-carousel.js"></script>
         <script src="/assets/js/zoom/zoom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <script src="/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
         <script src="/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
@@ -892,5 +894,83 @@
                 $.HSCore.components.HSSelectPicker.init('.js-select');
             });
         </script>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const wishlistButtons = document.querySelectorAll('.wishlist-button');
+
+                wishlistButtons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const productId = this.getAttribute('data-product-id');
+                        const form = document.getElementById(`wishlist-form-${productId}`);
+                        const icon = this.querySelector('i');
+
+                        $.ajax({
+                            type: "POST",
+                            url: form.action,
+                            data: $(form).serialize(), // Serialize form data
+                            success: function(response) {
+                                // Handle response based on status
+                                if (response.status === 'success') {
+                                    // Toggle between the outlined and filled heart icon
+                                    if (icon.classList.contains('far')) {
+                                        icon.classList.remove('far', 'fa-heart'); // Remove outlined version
+                                        icon.classList.add('fas', 'fa-heart');   // Add filled version
+                                    }
+
+                                    // Show the success message
+                                    Swal.fire({
+                                        toast: true,
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: response.message,
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                        timerProgressBar: true,
+                                        customClass: {
+                                            popup: 'colored-toast'
+                                        },
+                                        didOpen: (toast) => {
+                                            toast.addEventListener('mouseenter', Swal.stopTimer);
+                                            toast.addEventListener('mouseleave', Swal.resumeTimer);
+                                        }
+                                    });
+                                } else if (response.status === 'exists') {
+                                    // Show the informational message
+                                    Swal.fire({
+                                        toast: true,
+                                        position: 'top-end',
+                                        icon: 'error',
+                                        title: response.message,
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                        timerProgressBar: true,
+                                        customClass: {
+                                            popup: 'colored-toast'
+                                        },
+                                        didOpen: (toast) => {
+                                            toast.addEventListener('mouseenter', Swal.stopTimer);
+                                            toast.addEventListener('mouseleave', Swal.resumeTimer);
+                                        }
+                                    });
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                Swal.fire({
+                                    toast: true,
+                                    position: 'top-end',
+                                    icon: 'error',
+                                    title: 'Failed to add product to wishlist',
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                });
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+
     </body>
 </html>

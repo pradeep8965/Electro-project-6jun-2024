@@ -51,7 +51,7 @@
                                     if(session('firstname')){
                                         @endphp
                                         <strong>Welcome:     <i class="fas fa-user-circle"></i>     {{ session('firstname') }} {{ session('lastname') }}</strong>
-                                        <a href="/customer/logout" class="logout-button">
+                                        <a href="/customer/logout" class=" btn btn-soft-dark logout-button">
                                             Logout  
                                         </a>
                                         @php
