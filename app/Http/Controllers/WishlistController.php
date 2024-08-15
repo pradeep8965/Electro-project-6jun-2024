@@ -55,6 +55,11 @@ class WishlistController extends Controller
      */
     public function store(Request $request)
     {
+        // Check if the user is authenticated
+        if (!auth()->check()) {
+            return response()->json(['status' => 'not_logged_in'], 401);
+        }
+
         $data = $request->only('product_id');
         $data['customer_id'] = Auth::id();
 
@@ -72,6 +77,7 @@ class WishlistController extends Controller
             return response()->json(['status' => 'success', 'message' => 'Product added to wishlist successfully!'], 200);
         }
     }
+
 
 
     /**

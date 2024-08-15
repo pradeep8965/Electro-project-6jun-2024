@@ -32,7 +32,8 @@
         <link rel="stylesheet" href="/assets/css/theme.css">
         <style>
             .zoomContainer {
-                z-index: 9999 !important;
+                position: relative;
+                z-index: 1000 !important;
             }
             /* Container for breadcrumbs */
             .breadcrumbs {
@@ -82,11 +83,54 @@
                 display: inline-block;
                 margin-left: 0.5rem; /* Space between key and value */
             }
+            .model{
+                position: absolute;
+                z-index:2000
+            }
             
         </style>
     </head>
 
     <body>
+        
+        <!-- Modal -->
+        <div class="modal fade model" id="wishlistModal" tabindex="-1" aria-labelledby="wishlistModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="wishlistModalLabel">Login Required</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Login Form -->
+                        <form id="loginForm" method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email Here" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password " required>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                                <label class="form-check-label" for="remember">Remember me</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </form>
+                        <hr>
+                        <a href="#">Forgot your password?</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         @include('layouts.header')
 
@@ -910,7 +954,6 @@
                             url: form.action,
                             data: $(form).serialize(), // Serialize form data
                             success: function(response) {
-                                // Handle response based on status
                                 if (response.status === 'success') {
                                     // Toggle between the outlined and filled heart icon
                                     if (icon.classList.contains('far')) {
@@ -956,21 +999,69 @@
                                 }
                             },
                             error: function(xhr, status, error) {
-                                Swal.fire({
-                                    toast: true,
-                                    position: 'top-end',
-                                    icon: 'error',
-                                    title: 'Failed to add product to wishlist',
-                                    showConfirmButton: false,
-                                    timer: 3000,
-                                    timerProgressBar: true,
-                                });
+                                if (xhr.status === 401) {
+                                    // Trigger the modal if the user is not logged in
+                                    $('#wishlistModal').modal('show');
+                                } else {
+                                    Swal.fire({
+                                        toast: true,
+                                        position: 'top-end',
+                                        icon: 'error',
+                                        title: 'An error occurred',
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                        timerProgressBar: true,
+                                    });
+                                }
                             }
                         });
                     });
                 });
+
+                // Handle the login form submission inside the modal
+                $('#wishlistModal form').on('submit', function(event) {
+                    event.preventDefault();
+
+                    $.ajax({
+                        type: $(this).attr('method'),
+                        url: $(this).attr('action'),
+                        data: $(this).serialize(),
+                        success: function(response) {
+                            // Handle successful login
+                            location.reload(); // Reload the page or do something else
+                        },
+                        error: function(xhr) {
+                            // Handle login errors (e.g., invalid credentials)
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Login Failed',
+                                text: 'Invalid email or password. Please try again.',
+                            });
+                        }
+                    });
+                });
             });
         </script>
+        <script>
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Simulate a successful login (replace this with your actual login logic)
+                // For example, you might want to use AJAX to submit the form and get a response
+
+                Swal.fire({
+                icon: 'success',
+                title: 'Login Successful!',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+                });
+
+                // If using AJAX, you would handle the response here and show the toast if successful
+            });
+        </script>
+
 
     </body>
 </html>
