@@ -21,24 +21,7 @@ class WishlistController extends Controller
         ->join('products', 'products.id', '=', 'wishlists.product_id')
         ->where('users.id', Auth::id()) // Correct table name
         ->get();
-       
-       /*  $wishlists = [
-            'product1' => [
-                'product_name' => 'Product 1',
-                'unit_price' => 1900.99,
-                'is_instock' => true    
-            ],
-            'product2' => [
-                'product_name' => 'Product 2',
-                'unit_price' => 1910.99,
-                'is_instock' => false   
-            ],
-            'product3' => [
-                'product_name' => 'Product 3',
-                'unit_price' => 1920.99,
-                'is_instock' => true    
-            ]
-        ]; */
+        
         return view('shop/wishlist',['wishlists'=>$wishlists]);
     }
 

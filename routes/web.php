@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductFilterController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UnitController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\SystemInfoController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\CouponController;
 
 Route::get('/', function () {
     return view('home');
@@ -53,9 +55,12 @@ Route::prefix('/shop')->group(function () {
     });
 
 
-    Route::get('/cart',function(){
-        return view('shop/cart');
-    });
+    Route::resource('cart',CartController::class);
+
+    Route::resource('coupons',CouponController::class);
+
+    Route::post('coupons/apply',[CouponController::class, 'applyCoupon'])->name('coupons.apply');
+    
     
     Route::get('/my-account',function(){
         return view('shop/my-account'); //my-account.blade.php

@@ -37,11 +37,11 @@ class HomeController extends Controller
     public function show($slug) {
         // Fetch product details based on the slug
         $product = Product::where('slug', $slug)
-                          ->join('categories', 'products.category_id', '=', 'categories.category_id')
-                          ->join('brands', 'products.brand_id', '=', 'brands.id')
-                          ->join('sellers', 'products.seller_id', '=', 'sellers.id')
-                          ->select('products.*', 'categories.category_name', 'brands.brand_name', 'brands.picture', 'sellers.seller_name')
-                          ->first();
+        ->join('categories', 'products.category_id', '=', 'categories.category_id')
+        ->join('brands', 'products.brand_id', '=', 'brands.id')
+        ->join('sellers', 'products.seller_id', '=', 'sellers.id')
+        ->select('products.*', 'categories.category_name', 'brands.brand_name', 'brands.picture', 'sellers.seller_name')
+        ->first();  
         
         // Calculate the average rating of the product from the review table
         // Join with the review table and count the number of reviews

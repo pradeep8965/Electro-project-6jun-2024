@@ -1061,7 +1061,26 @@
                 // If using AJAX, you would handle the response here and show the toast if successful
             });
         </script>
-
-
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('.delete-button').forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        Swal.fire({
+                            title: 'Are you sure?',
+                            text: "You want to delete it?",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, delete it!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                this.closest('form').submit();
+                            }
+                        })
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
