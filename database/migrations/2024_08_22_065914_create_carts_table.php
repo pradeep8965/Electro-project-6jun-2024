@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->string('customer_id');
-            $table->string('product_id');
-            $table->string('qty');
+            $table->string('customer_id'); // Using string type for customer_id; adjust as needed
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+            $table->integer('qty')->default(1); // Changed from quantity to qty
             $table->timestamps();
         });
     }

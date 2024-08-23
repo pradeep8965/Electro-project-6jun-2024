@@ -63,8 +63,30 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $productId = $request->input('product_id');
+        $customerId = auth()->id(); // Assuming the user is authenticated
+    
+        // Check if the product is already in the cart
+        $existingCartItem = Cart::where('customer_id', $customerId)
+                                ->where('product_id', $productId)
+                                ->first();
+    
+        if ($existingCartItem) {
+            // Return JSON response indicating the product is already in the cart
+            return response()->json(['message' => 'Product is already in your cart!'], 400);
+        }
+    
+        // Add to cart logic
+        Cart::create([
+            'customer_id' => $customerId,
+            'product_id' => $productId,
+            'qty' => 1, // Default quantity
+        ]);
+    
+        // Return JSON response
+        return response()->json(['message' => 'Product added to cart!'], 200);
     }
+    
 
     /**
      * Display the specified resource.
@@ -103,5 +125,11 @@ class CartController extends Controller
         // Return back to the same page with a success message (optional)
         return redirect()->back()->with('success', 'Item removed from cart.');
     }
-    
+    public function showCart()
+    {
+        $cartData = Cart::with('product')->get(); // Fetch related product data
+
+        
+        return view('shop/cart', ['cartData' => $cartData]);
+    }
 }

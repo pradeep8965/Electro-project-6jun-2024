@@ -50,11 +50,16 @@
                                 
                                 <td class="d-none d-md-table-cell">
                                     <a href="#">
-                                        <img class="img-fluid max-width-100 p-1 border border-color-1" src="#" alt="Image Description">
+                                        @if(isset($cartItem->product->prod_thumbnail_img) && file_exists(public_path('storage/' . $cartItem->product->prod_thumbnail_img)))
+                                            <img class="img-fluid max-width-100 p-1 border border-color-1" src="{{ asset('storage/' . $cartItem->product->prod_thumbnail_img) }}" alt="{{ $cartItem->product->name }}">
+                                        @else
+                                            <img class="img-fluid max-width-100 p-1 border border-color-1" src="{{ asset('storage/default-image.png') }}"   >
+                                        @endif
                                     </a>
                                 </td>
-                                
 
+
+                                
                                 <td data-title="Product">
                                     <a href="#" class="text-gray-90">{{$cartData['product_name']}}</a>
                                 </td>

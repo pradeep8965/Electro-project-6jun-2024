@@ -1082,5 +1082,45 @@
                 });
             });
         </script>
+        <script>
+            $(document).ready(function() {
+                $('#addToCartForm').on('submit', function(event) {
+                    event.preventDefault(); // Prevent page reload
+
+                    var form = $(this);
+                    var formData = form.serialize(); // Serialize form data
+
+                    $.ajax({
+                        url: form.attr('action'), // Form action URL
+                        type: 'POST',
+                        data: formData,
+                        success: function(response) {
+                            // Handle success response
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Added to Cart!',
+                                text: response.message || 'Product has been added to your cart.',
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        },
+                        error: function(xhr) {
+                            // Handle error response
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Sorry...',
+                                text: xhr.responseJSON.message || 'Something went wrong!',
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    });
+                });
+            });
+        </script> 
     </body>
 </html>
