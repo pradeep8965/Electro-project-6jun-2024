@@ -63,30 +63,29 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $productId = $request->input('product_id');
-        $customerId = auth()->id(); // Assuming the user is authenticated
-    
-        // Check if the product is already in the cart
-        $existingCartItem = Cart::where('customer_id', $customerId)
-                                ->where('product_id', $productId)
-                                ->first();
-    
-        if ($existingCartItem) {
-            // Return JSON response indicating the product is already in the cart
-            return response()->json(['message' => 'Product is already in your cart!'], 400);
+
+        //dd($request->all());
+
+        $data = $request->only('product_id','qty');
+        $data['customer_id'] = Auth::id();
+
+         // Check if the product is already in the cart for the current customer
+        $existingCart = Cart::where('customer_id', $data['customer_id'])
+                            ->where('product_id', $data['product_id'])
+                            ->first();
+
+        if ($existingCart) {
+            // If the product already exists, update the quantity
+            $existingCart->qty += $data['qty'];
+            $existingCart->save();
+        } else {
+            // If the product does not exist in the cart, create a new entry
+            Cart::create($data);
         }
-    
-        // Add to cart logic
-        Cart::create([
-            'customer_id' => $customerId,
-            'product_id' => $productId,
-            'qty' => 1, // Default quantity
-        ]);
-    
-        // Return JSON response
-        return response()->json(['message' => 'Product added to cart!'], 200);
+        // Redirect back with a success message
+        return back()->with('success', 'Product added to Cart successfully!');
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -131,5 +130,17 @@ class CartController extends Controller
 
         
         return view('shop/cart', ['cartData' => $cartData]);
+    }
+    public function destroyAll(Request $request)
+    {
+        //dd('Cart DestroyAll');
+         // Get the currently authenticated user's ID
+        $customerId = Auth::id();
+
+        // Delete all cart items for the authenticated user
+        Cart::where('customer_id', $customerId)->delete();
+
+        // Return back to the same page with a success message (optional)
+        return redirect()->back()->with('success', 'Cart Emptied Succesffull');
     }
 }

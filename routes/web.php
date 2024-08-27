@@ -43,6 +43,9 @@ Route::prefix('customer')->group(function () { // /admin/login
      Route::resource('review', ReviewController::class);
 });
 
+
+
+Route::delete('cart/destroy',[CartController::class, 'destroyAll'])->name('cart.destroyAll');
 Route::prefix('/shop')->group(function () {
     Route::get('/shop-grid',[ProductFilterController::class,'filter'])->name('shop-grid');;
     Route::get('/shop',function(){
