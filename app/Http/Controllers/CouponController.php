@@ -62,25 +62,4 @@ class CouponController extends Controller
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function applyCoupon(Request $request, Coupon $coupon)
-    {
-        //dd($request->coupon_code);
-
-        //Set this coupon code in session
-        $couponCode = $request->coupon_code;
-
-        //Check with coupon table if the coupon is valid or not
-        
-
-         // Set the coupon code in the session
-        //session()->put('applied_coupon', $couponCode);
-
-        // Optionally, you can return a response or redirect
-        return redirect()->back()->with('success', 'Coupon code applied successfully!');
-
-    }
 }
