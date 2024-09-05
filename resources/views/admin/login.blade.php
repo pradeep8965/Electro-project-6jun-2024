@@ -40,7 +40,8 @@
 <div >
   <div class="login-logo">
     <a href="/admin">
-      <img width="200" src="{{$app_logo}}"/>
+      <img width="200" src="#"/>
+      
     </a>
   </div>
   <!-- /.login-logo -->
