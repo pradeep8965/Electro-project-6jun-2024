@@ -56,6 +56,59 @@
                 text-align: center;
                 cursor: pointer;
             }
+            /* Chat Styling */
+            .chatCard {
+                border: none;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .chat-body {
+                background-image: url('https://www.shutterstock.com/image-vector/social-media-sketch-vector-seamless-600nw-1660950727.jpg'); /* Add your image URL */
+                background-size: contain; /* Adjust based on image type, can be cover or contain */
+                background-position: center;
+                background-repeat: repeat;
+                padding: 20px;
+                overflow-y: auto;
+                height: 500px;
+            }
+
+            .chat-bubble {
+                max-width: 70%;
+                padding: 10px 15px;
+                border-radius: 20px;
+                word-wrap: break-word;
+            }
+
+            .chat-bubble.left {
+                background-color: #e9ecef;
+                border-top-left-radius: 0;
+            }
+
+            .chat-bubble.right {
+                background-color: #0d6efd;
+                color: #fff;
+                border-top-right-radius: 0;
+            }
+
+            /* Avatars */
+            img.rounded-circle {
+                width: 40px;
+                height: 40px;
+            }
+
+            /* Input Styling */
+            .chatInput {
+                border-radius: 20px;
+                padding-left: 20px;
+            }
+
+            /* Chat Form */
+            #chatForm {
+                position: sticky;
+                bottom: 0;
+                background-color: #fff;
+            }
+
         </style>
     </head>
     <body>
