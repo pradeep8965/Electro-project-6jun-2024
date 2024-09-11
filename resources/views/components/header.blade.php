@@ -6,14 +6,11 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin/dashboard" class="nav-link" style="font-weight:bold;">Home</a>
+            <a href="/admin/dashboard" class=" btn nav-link" style="font-weight:bold;">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin/logout" class="nav-link" style="font-weight:bold;">Logout</a>
+            <a href="/admin/logout" class="btn nav-link" style="font-weight:bold;">Logout</a>
         </li>
-      <!--   <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin/category" class="nav-link" style="font-weight:bold;">Categories</a>
-        </li> -->
     </ul>
 
     <!-- Right navbar links -->

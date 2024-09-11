@@ -60,23 +60,28 @@
             .chatCard {
                 border: none;
                 box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                height: 100%;
             }
 
             .chat-body {
-                background-image: url('https://www.shutterstock.com/image-vector/social-media-sketch-vector-seamless-600nw-1660950727.jpg'); /* Add your image URL */
+                background-image: url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg'); /* Add your image URL */
                 background-size: contain; /* Adjust based on image type, can be cover or contain */
                 background-position: center;
                 background-repeat: repeat;
                 padding: 20px;
-                overflow-y: auto;
-                height: 500px;
+                overflow-y: auto; /* Enable vertical scrolling */
+                height: 0; /* Reset height to allow flex-grow */
+                flex-grow: 1; /* Make chat-body fill available space */
             }
 
             .chat-bubble {
-                max-width: 70%;
+                max-width: 75%;
                 padding: 10px 15px;
                 border-radius: 20px;
                 word-wrap: break-word;
+                position: relative;
             }
 
             .chat-bubble.left {
@@ -108,7 +113,102 @@
                 bottom: 0;
                 background-color: #fff;
             }
+            /* Adjust button colors to match the theme color #FED700 */
+            .btn-attractive-yellow {
+                background: linear-gradient(135deg, #FED700, #FFEB3B); /* Use theme color and a lighter shade */
+                color: black; /* Dark text for better contrast */
+                font-weight: bold;
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                border: none;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+                transition: all 0.3s ease;
+            }
 
+            .btn-attractive-yellow:hover {
+                background: linear-gradient(135deg, #FFEB3B, #FED700); /* Reversed gradient on hover */
+                box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+                transform: translateY(-2px);
+            }
+
+            .btn-attractive-yellow i {
+                margin-right: 8px;
+                font-size: 1.3rem;
+            }
+
+            .input-group .form-control {
+                padding: 12px 20px;
+                border: 2px solid #FED700; /* Theme border color */
+                box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            }
+            /* Input field design matching the theme color #FED700 */
+            .form-control.chatInput {
+                padding: 12px 20px; /* Increase padding for better visual appeal */
+                border: 2px solid #FED700; /* Border color matching the theme */
+                border-radius: 30px; /* Rounded corners */
+                background-color: #FFF; /* White background for the input field */
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+                font-size: 1rem; /* Adjust font size for readability */
+                color: #333; /* Dark text color for contrast */
+                transition: all 0.3s ease; /* Smooth transition for focus state */
+            }
+
+            .form-control.chatInput::placeholder {
+                color: #999; /* Placeholder color for better contrast */
+            }
+
+            .form-control.chatInput:focus {
+                border-color: #FFEB3B; /* Lighter yellow for focus state */
+                box-shadow: 0 0 8px rgba(254, 215, 0, 0.5); /* Glow effect on focus */
+                outline: none; /* Remove default outline */
+                background-color: #FFF; /* Ensure background stays white */
+            }
+            /* Style for chat header */
+            .card-header {
+                border-bottom: 1px solid #eaeaea; /* Add a subtle border for definition */
+                background-color: #ffffff; /* Ensure background is white */
+                padding: 15px 20px; /* Add padding for better spacing */
+            }
+
+            /* Style for avatar image */
+            .avatar {
+                width: 50px; /* Fixed width for the avatar */
+                height: 50px; /* Fixed height for the avatar */
+                object-fit: cover; /* Ensure image covers the avatar area without distortion */
+            }
+            /* Style for the chat title */
+            .chat-title {
+                font-size: 1.25rem; /* Increase font size for better visibility */
+                color: #333; /* Use theme color for text */
+                font-weight: bold; /* Ensure the text is bold */
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+                letter-spacing: 0.5px; /* Slightly increase letter spacing */
+            }
+            /* Optional: Add hover effect */
+            .card-header:hover {
+                background-color: #f8f9fa; /* Light background on hover */
+                cursor: pointer; /* Change cursor to pointer on hover */
+            }
+            /* Style for timestamps */
+            .timestamp {
+                display: block; /* Make timestamp appear on its own line */
+                font-size: 0.75rem; /* Slightly smaller font size */
+                color: #999; /* Lighter color for timestamp */
+                text-align: right; /* Align timestamp to the right for bubbles */
+                margin-top: 5px; /* Space between message and timestamp */
+            }
+            /* Chat bubble for received messages */
+            .left {
+                background-color: #f1f1f1;
+                color: #333;
+            }
+
+            /* Chat bubble for sent messages */
+            .right {
+                background-color: #007bff; /* Primary color or your theme color */
+                color: white;
+                text-align: right;
+            }
         </style>
     </head>
     <body>
@@ -361,5 +461,40 @@
                     //console.log('Hello',e.target.value);
                 });
         </script>
+        <script>
+            document.getElementById('chatForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent form from submitting the default way
+
+                const messageInput = document.querySelector('.chatInput');
+                const messageText = messageInput.value.trim();
+
+                if (messageText) {
+                    const chatBody = document.querySelector('.chat-body');
+                    const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}); // Format time as HH:MM AM/PM
+
+                    // Create new message bubble
+                    const messageBubble = document.createElement('div');
+                    messageBubble.className = 'd-flex justify-content-end mb-3';
+
+                    messageBubble.innerHTML = `
+                        <div class="chat-bubble right p-3 bg-primary text-white rounded-3">
+                            ${messageText}
+                            <span class="timestamp">${currentTime}</span>
+                        </div>
+                        <img src="https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725840000&semt=ais_hybrid" class="rounded-circle ms-2" alt="User Avatar">
+                    `;
+
+                    // Append the new message bubble to the chat body
+                    chatBody.appendChild(messageBubble);
+                    
+                    // Clear the input field
+                    messageInput.value = '';
+                    
+                    // Scroll to the bottom of the chat
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }
+            });
+        </script>
+
     </body>
 </html>

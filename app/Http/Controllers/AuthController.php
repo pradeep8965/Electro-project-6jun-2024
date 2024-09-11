@@ -94,7 +94,7 @@ class AuthController extends Controller
         //Session detroy
         $request->session()->flush();
         //Everyt function return something
-        return redirect('/admin');
+        return redirect('/admin/logout');
     }
 
 
