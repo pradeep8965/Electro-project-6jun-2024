@@ -18,7 +18,7 @@ use App\Http\Controllers\SystemInfoController;
 /* Admin/Backend Routes*/
 
 Route::prefix('admin')->middleware(AdminAuth::class)->group(function () { // /admin/login
-    Route::get('/',[SystemInfoController::class,'login'])->withoutMiddleware([AdminAuth::class]);
+    Route::get('/login',[SystemInfoController::class,'login'])->withoutMiddleware([AdminAuth::class]);
     Route::get('/login', function () {
         // Matches The "/admin/login" URL
         return view('admin.login'); //login.blade.php
@@ -37,6 +37,11 @@ Route::prefix('admin')->middleware(AdminAuth::class)->group(function () { // /ad
         Route::get('/profile', function () {
             // Matches The "/admin/user" URL
             return view('admin.profile');
+            // profile.blade.php 
+        });
+        Route::get('/design', function () {
+            // Matches The "/admin/user" URL
+            return view('admin.design');
             // profile.blade.php 
         });
         Route::get('/general', function () {

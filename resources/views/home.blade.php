@@ -12,6 +12,36 @@
                             <div class="row min-height-420 py-7 py-md-0">
                                 <div class="offset-xl-3 col-xl-4 col-6 mt-md-8">
                                     <h1 class="font-size-64 text-lh-57 font-weight-light"
+                                        data-scs-animation-in="fadeInUp">
+                                        THE NEW <span class="d-block font-size-55">STANDARD</span>
+                                    </h1>
+                                    <h6 class="font-size-15 font-weight-bold mb-3" data-scs-animation-in="fadeInUp"data-scs-animation-delay="200">
+                                        EXPERIENCE THE NEW iPHONE 16
+                                    </h6>
+                                    <div class="mb-4" data-scs-animation-in="fadeInUp" data-scs-animation-delay="300">
+                                        <span class="font-size-13">FROM</span>
+                                        <div class="font-size-50 font-weight-bold text-lh-45">
+                                            <sup class="">$</sup>1099<sup class="">99</sup>
+                                        </div>
+                                    </div>
+                                    <a href="3"
+                                        class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-16"
+                                        data-scs-animation-in="fadeInUp" data-scs-animation-delay="400">
+                                        Start Buying
+                                    </a>
+                                </div>
+                                <div class="col-xl-5 col-6  d-flex align-items-center" data-scs-animation-in="fadeInUp"
+                                    data-scs-animation-delay="500">
+                                    <img class="img-fluid" src="https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/geo/Apple-iPhone-16-finish-lineup-geo-240909_big.jpg.large.jpg"
+                                        alt="iPhone 16" style="height: 350px; width: 1000px;">
+                                        <!-- style="opacity: 0.7;" -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="js-slide bg-img-hero-center" data-animation-delay="0">
+                            <div class="row min-height-420 py-7 py-md-0">
+                                <div class="offset-xl-3 col-xl-4 col-6 mt-md-8">
+                                    <h1 class="font-size-64 text-lh-57 font-weight-light"
                                         data-scs-animation-in="fadeInLeft">
                                         THE NEW <span class="d-block font-size-55">FOLDABLE</span>
                                     </h1>
@@ -33,35 +63,6 @@
                                 <div class="col-xl-5 col-6  d-flex align-items-center" data-scs-animation-in="fadeInDown"
                                     data-scs-animation-delay="100">
                                     <img class="img-fluid" src="https://images.samsung.com/is/image/samsung/assets/uk/support/galaxy-z-fold6-faq-header-550x340.png?$ORIGIN_PNG$"
-                                        alt="Image Description">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="js-slide bg-img-hero-center">
-                            <div class="row min-height-420 py-7 py-md-0">
-                                <div class="offset-xl-3 col-xl-4 col-6 mt-md-8">
-                                    <h1 class="font-size-64 text-lh-57 font-weight-light"
-                                        data-scs-animation-in="fadeInUp">
-                                        THE NEW <span class="d-block font-size-55">STANDARD</span>
-                                    </h1>
-                                    <h6 class="font-size-15 font-weight-bold mb-3" data-scs-animation-in="fadeInUp"
-                                        data-scs-animation-delay="200">UNDER FAVORABLE SMARTWATCHES
-                                    </h6>
-                                    <div class="mb-4" data-scs-animation-in="fadeInUp" data-scs-animation-delay="300">
-                                        <span class="font-size-13">FROM</span>
-                                        <div class="font-size-50 font-weight-bold text-lh-45">
-                                            <sup class="">$</sup>749<sup class="">99</sup>
-                                        </div>
-                                    </div>
-                                    <a href="https://transvelo.github.io/electro-html/2.0/html/shop/single-product-fullwidth.html"
-                                        class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-16"
-                                        data-scs-animation-in="fadeInUp" data-scs-animation-delay="400">
-                                        Start Buying
-                                    </a>
-                                </div>
-                                <div class="col-xl-5 col-6  d-flex align-items-center" data-scs-animation-in="zoomIn"
-                                    data-scs-animation-delay="500">
-                                    <img class="img-fluid" src="/assets/img/416X420/img1.png"
                                         alt="Image Description">
                                 </div>
                             </div>

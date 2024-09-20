@@ -28,7 +28,7 @@ Route::post('/chat', [ChatController::class, 'store']);
 Route::post('/login',[AuthController::class,'login'])->name('login');
 
 /*   Frontend Routes     */
-Route::prefix('customer')->group(function () { // /admin/login
+Route::prefix('customer')->group(function () { 
     Route::post('/register', [CustomerAuthController::class,'register'])->name('customerRegister');
     Route::post('/login', [CustomerAuthController::class,'login'])->name('customerLogin');
     Route::get('/logout', [CustomerAuthController::class,'logout']);
