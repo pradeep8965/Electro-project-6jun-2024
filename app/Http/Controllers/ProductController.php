@@ -23,8 +23,7 @@ class ProductController extends Controller
 
         // Pass products to the view
 
-        $products = Product
-        ::join('brands','products.brand_id','=','brands.id')
+        $products = Product::join('brands','products.brand_id','=','brands.id')
         ->join('units','products.unit_id','=','units.id')
         ->join('categories','products.category_id','=','categories.category_id')
         ->select('products.id as product_id', 'products.*', 'brands.*', 'units.*', 'categories.*')
@@ -165,9 +164,9 @@ class ProductController extends Controller
             'prod_main_img' => 'required|mimes:jpg,jpeg,png|max:1024|dimensions:width=720,height=660',// 1024kb = 1mb
         ]);
 
-        echo '<pre>';
+       /*  echo '<pre>';
         print_r($request->all());
-        echo '</pre>';
+        echo '</pre>'; */
         //Lets work on image update
         $file = $request->file('prod_thumbnail_img');
         $dst='';
