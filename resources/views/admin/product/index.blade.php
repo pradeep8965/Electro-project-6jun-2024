@@ -58,15 +58,6 @@
                                             &#x2D; - &#45;
                                             @endif
                                         </td>
-                                       <!--  <td  style="text-align: center; vertical-align: middle;">
-                                            @if(isset($product->prod_main_img) && !empty($product->prod_main_img))
-                                            <img width="60" style="display: block; margin-left: auto; margin-right: auto;" src="{{ asset('/').ltrim($product->prod_main_img,'/') }}" />
-                                            @else
-                                            &#x2D; - &#45;
-                                            @endif
-                                        </td> 
-                                        <td  style="text-align: center; vertical-align: middle;">{{$product->mrp}}</td>
-                                        <td  style="text-align: center; vertical-align: middle;">{{$product->sell_price}}</td> -->
                                         <td>
                                             <a href="/admin/product/{{$product->product_id}}" class="btn btn-outline-info rounded-circle btn-sm">
                                                 <i class="fa-regular fa-eye"></i>   
